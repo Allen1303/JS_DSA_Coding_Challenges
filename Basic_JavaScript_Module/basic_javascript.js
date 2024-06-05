@@ -22,8 +22,8 @@ You will need to use escape sequences to insert special characters correctly. Yo
 Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.*/
 /**
  * @param {SOLUTION}
-*/
- 
+ */
+
 const myStr = "FirstLine\n\t\\SecondLine\nThirdLine";
 //////////////////////////////////////////////////////////////////////
 /**
@@ -42,3 +42,41 @@ String.prototype.toJadenCase = function () {
 };
 console.log(jadenQoute.toJadenCase()); // log the result
 ////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param { WORKING STRINGS CHALLENGE}
+ * created a variable const firstName = "Ada", we could find out how long the string Ada is by using the firstName.length property.
+Use the .length property to set lastNameLength to the number of characters in lastName.
+ */
+// Setup
+let lastNameLength = 0;
+const lastName = "Lovelace";
+// SOLUTION
+lastNameLength = lastName.length;
+//////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Use bracket notation to find the first character in the lastName variable and assign it to firstLetterOfLastName.
+ */
+let firstLetterOfLastName = "";
+const lastName2 = "Lovelace";
+//SOLUTION
+firstLetterOfLastName = lastName2[0];
+////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Use Bracket Notation to Find the Nth-to-Last Character in a String}
+ * You can use the same principle we just used to retrieve the last character in a string to retrieve the Nth-to-last character.
+ * Use bracket notation to find the second-to-last character in the lastName string.
+ */
+const lastName3 = "Lovelace";
+//SOLUTION
+const secondToLastLetterOfLastName = lastName3[lastName3.length - 2];
+////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {DATA STRUCTURES}
+ * Store Multiple Values in one Variable using JavaScript Arrays
+ */
+
+variableName.addEventListener(Type, () => {});
+
+const arrayName = [];
+const ObjectName = { key: value, key: value, key: value };
+const functionName = (param) => {};
