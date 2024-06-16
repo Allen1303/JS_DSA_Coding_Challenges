@@ -1078,3 +1078,214 @@ const testObj2 = {
 // SOLUTION
 const entreeValue = testObj2["an entree"];
 const drinkValue = testObj2["the drink"];
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/** Date: June 15 2024
+ *@param {Accessing Object Properties with Variables}
+Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+EXAMPLE 
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+
+@param CHALLENGE
+Set the playerNumber variable to 16. Then, use the variable to look up the player's name and assign it to player.
+ */
+// Setup
+const testObj3 = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas",
+};
+// SOLUTION
+const playerNumber = 16; // Change this line
+const player = testObj3[playerNumber];
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Updating Object Properties}
+After you've created a JavaScript object, you can update its properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+@param CHALLENGE
+Update the myDog object's name property. Let's change her name from Coder to Happy Coder. You can use either dot or bracket notation.
+ */
+// Setup
+const myDog1 = {
+  name: "Coder",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+};
+//Solution using dot notation
+myDog1.name = "Happy coder";
+// Solution using the bracket notation
+myDog1["name"] = "Happy coder";
+
+/**
+ * @param {Add New Properties to a JavaScript Object}
+You can add new properties to existing JavaScript objects the same way you would modify them.
+@param CHALLENGE
+Add a bark property to myDog and set it to a dog sound, such as "woof". You may use either dot or bracket notation.
+ */
+//SOLUTION
+// Setup
+const myDog2 = {
+  name: "Happy Coder",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+};
+//dot notation
+myDog2.bark = "Woof";
+// bracket notation
+myDog2["bark"] = "WOOF";
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param Delete Properties from a JavaScript Object
+ * example code
+ * const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+delete ourDog.bark;
+@param CHALLENGE
+Delete the tails property from myDog. You may use either dot or bracket notation.
+ */
+const myDog3 = {
+  name: "Happy Coder",
+  legs: 4,
+  tails: 1,
+  friends: ["freeCodeCamp Campers"],
+  bark: "woof",
+};
+// Dot notation method
+delete myDog3.tails;
+// Bracket notation method
+delete myDog3["tails"];
+console.log(myDog3);
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ *@param {Using Objects for Lookups}
+Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+Exmaple code
+const article = {
+  "title": "How to create objects in JavaScript",
+  "link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
+  "author": "Kaashan Hussain",
+  "language": "JavaScript",
+  "tags": "TECHNOLOGY",
+  "createdAt": "NOVEMBER 28, 2018"
+};
+const articleAuthor = article["author"];
+const articleLink = article["link"];
+const value = "title";
+const valueLookup = article[value];
+@param CHALLENGE
+Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
+function phoneticLookup(val) {
+  let result = "";
+
+  // Only change code below this line
+  switch(val) {
+    case "alpha":
+      result = "Adams";
+      break;
+    case "bravo":
+      result = "Boston";
+      break;
+    case "charlie":
+      result = "Chicago";
+      break;
+    case "delta":
+      result = "Denver";
+      break;
+    case "echo":
+      result = "Easy";
+      break;
+    case "foxtrot":
+      result = "Frank";
+  }
+
+  // Only change code above this line
+  return result;
+}
+
+phoneticLookup("charlie");
+ */
+function phoneticLookup(val) {
+  let result = "";
+  //Solution
+  const lookup = {
+    alpha: "Adams",
+    bravo: "Boston",
+    charlie: "Chicago",
+    delta: "Denver",
+    echo: "Easy",
+    foxtrot: "Frank",
+  };
+  result = lookup[val];
+  return result;
+}
+phoneticLookup("charlie");
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Testing Objects for Properties}
+To check if a property on a given object exists or not, you can use the .hasOwnProperty() method. someObject.hasOwnProperty(someProperty) returns true or false depending on if the property is found on the object or not.
+Example Syntax
+function checkForProperty(object, property) {
+  return object.hasOwnProperty(property);
+}
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); // true
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false
+@param CHALLENGE
+Modify the function checkObj to test if the object passed to the function parameter obj contains the specific property passed to the function parameter checkProp. If the property passed to checkProp is found on obj, return that property's value. If not, return Not Found.
+ */
+function checkObj(obj, checkProp) {
+  //SOLUTION
+  if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  } else {
+    return "Not Found";
+  }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Manipulating Complex Objects}
+Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+@param {Example Syntax}
+const ourMusic = [
+  {
+    "artist": "Daft Punk",
+    "title": "Homework",
+    "release_year": 1997,
+    "formats": [ 
+      "CD", 
+      "Cassette", 
+      "LP"
+    ],
+    "gold": true
+  }
+];
+@param CHALLENGE
+Add a new album to the myMusic array. Add artist and title strings, release_year number, and a formats array of strings.
+ */
+const myMusic = [
+  {
+    artist: "Billy Joel",
+    title: "Piano Man",
+    release_year: 1973,
+    formats: ["CD", "8T", "LP"],
+    gold: true,
+  },
+  {
+    artist: "Buna Boy",
+    title: "last last",
+    ["release year"]: 2023,
+    formats: ["CD", "Digital", "LP"],
+  },
+];
