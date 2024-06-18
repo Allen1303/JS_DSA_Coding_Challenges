@@ -1289,3 +1289,149 @@ const myMusic = [
     formats: ["CD", "Digital", "LP"],
   },
 ];
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Date: June 17, 2024
+ *@param { Accessing Nested Objects}
+The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+ * example syntax
+const ourStorage = {
+  "desk": {
+    "drawer": "stapler"
+  },
+  "cabinet": {
+    "top drawer": { 
+      "folder1": "a file",
+      "folder2": "secrets"
+    },
+    "bottom drawer": "soda"
+  }
+};
+ourStorage.cabinet["top drawer"].folder2;
+ourStorage.desk.drawer;
+@param CHALLENGE
+Access the myStorage object and assign the contents of the glove box property to the gloveBoxContents variable. Use dot notation for all properties where possible, otherwise use bracket notation.
+ */
+const myStorage = {
+  car: {
+    inside: {
+      "glove box": "maps",
+      "passenger seat": "crumbs",
+    },
+    outside: {
+      trunk: "jack",
+    },
+  },
+};
+//SOLUTION
+const gloveBoxContents = myStorage.car.inside["glove box"];
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Accessing Nested Arrays}
+As we have seen in earlier examples, objects can contain both nested objects and nested arrays. Similar to accessing nested objects, array bracket notation can be chained to access nested arrays.
+
+Here is an example of how to access a nested array:
+
+const ourPets = [
+  {
+    animalType: "cat",
+    names: [
+      "Meowzer",
+      "Fluffy",
+      "Kit-Cat"
+    ]
+  },
+  {
+    animalType: "dog",
+    names: [
+      "Spot",
+      "Bowser",
+      "Frankie"
+    ]
+  }
+];
+
+ourPets[0].names[1];
+ourPets[1].names[0];
+ourPets[0].names[1] would be the string Fluffy, and ourPets[1].names[0] would be the string Spot.
+@param CHALLENGE
+Using dot and bracket notation, set the variable secondTree to the second element in the list array from the second object in the myPlants array.
+
+ */
+const myPlants = [
+  {
+    type: "flowers",
+    list: ["rose", "tulip", "dandelion"],
+  },
+  {
+    type: "trees",
+    list: ["fir", "pine", "birch"],
+  },
+];
+//Solution
+const secondTree = myPlants[1].list[1];
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Record Collection}
+You are creating a function that aids in the maintenance of a musical album collection. The collection is organized as an object that contains multiple albums which are also objects. Each album is represented in the collection with a unique id as the property name. Within each album object, there are various properties describing information about the album. Not all albums have complete information.
+
+The updateRecords function takes 4 arguments represented by the following function parameters:
+
+records - an object containing several individual albums
+id - a number representing a specific album in the records object
+prop - a string representing the name of the album’s property to update
+value - a string containing the information used to update the album’s property
+
+@param CHALLENGE
+Complete the function using the rules below to modify the object passed to the function.
+
+Your function must always return the entire records object.
+If value is an empty string, delete the given prop property from the album.
+If prop isn't tracks and value isn't an empty string, assign the value to that album's prop.
+If prop is tracks and value isn't an empty string, but the album doesn't have a tracks property, create an empty array and add value to it.
+If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+Note: A copy of the recordCollection object is used for the tests. You should not directly modify the recordCollection object.
+
+ */
+// Setup
+const recordCollection = {
+  2548: {
+    albumTitle: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: ["Let It Rock", "You Give Love a Bad Name"],
+  },
+  2468: {
+    albumTitle: "1999",
+    artist: "Prince",
+    tracks: ["1999", "Little Red Corvette"],
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [],
+  },
+  5439: {
+    albumTitle: "ABBA Gold",
+  },
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  //If value is an empty string, delete the given prop property from the album.
+  if (value === "") {
+    delete records[id][prop];
+    //If prop isn't tracks and value isn't an empty string, assign the value to that album's prop.
+  } else if (prop !== "tracks" && value !== "") {
+    records[id][prop] = value;
+    //If prop is tracks and value isn't an empty string, but the album doesn't have a tracks create an empty array and add value to it.
+  } else if (prop === "tracks" && value !== "") {
+    if (!records[id].hasOwnProperty("tracks")) {
+      records[id]["tracks"] = [];
+    }
+    //  If prop is tracks and value isn't an empty string, add value to the end of the album's existing tracks array.
+    records[id]["tracks"].push(value);
+  }
+
+  return records;
+}
+
+updateRecords(recordCollection, 5439, "artist", "ABBA");
