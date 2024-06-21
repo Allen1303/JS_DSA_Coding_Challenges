@@ -1370,7 +1370,7 @@ const myPlants = [
 ];
 //Solution
 const secondTree = myPlants[1].list[1];
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 /**
  * @param {Record Collection}
 You are creating a function that aids in the maintenance of a musical album collection. The collection is organized as an object that contains multiple albums which are also objects. Each album is represented in the collection with a unique id as the property name. Within each album object, there are various properties describing information about the album. Not all albums have complete information.
@@ -1435,3 +1435,117 @@ function updateRecords(records, id, prop, value) {
 }
 
 updateRecords(recordCollection, 5439, "artist", "ABBA");
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/** June 20 2024 Challenges
+ * @param {Iterate with JavaScript While Loops}
+You can run the same code multiple times by using a loop.
+
+The first type of loop we will learn is called a while loop because it runs while a specified condition is true and stops once that condition is no longer true.
+Example Syntax
+const ourArray = [];
+let i = 0;
+
+while (i < 5) {
+  ourArray.push(i);
+  i++;
+}
+In the code example above, the while loop will execute 5 times and append the numbers 0 through 4 to ourArray.
+@param CHALLENGE
+ Add the numbers 5 through 0 (inclusive) in descending order to myArray using a while loop.
+ */
+const myArray1 = [];
+// Solution
+let i = 5;
+
+while (i >= 0) {
+  myArray1.push(i);
+  i--;
+}
+console.log(myArray1);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Iterate with JavaScript For Loops}
+
+Use a for loop to run a block of code multiple times.
+It has 3 parts (separated by semicolons):
+Setup (runs once): Initialize a loop counter variable (e.g., i = 0).
+Condition (checks each time): Loop continues as long as this condition is true (e.g., i < 5).
+Update (runs after each loop): Do something after each loop (e.g., i++ to increment the counter).
+Example Syntax
+const ourArray = [];
+
+for (let i = 0; i < 5; i++) {
+  ourArray.push(i);
+}
+  @param CHALLENGE
+  Use a for loop to push the values 1 through 5 onto myArray.
+ */
+
+const myArr = [];
+//SOLUTION
+for (let i = 1; i < 6; i++) {
+  myArr.push(i);
+}
+console.log(myArr);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Iterate Odd Numbers With a For Loop}
+For loops don't have to iterate one at a time. By changing our final-expression, we can count by even numbers.
+Example Syntax
+const ourArray = [];
+
+for (let i = 0; i < 10; i += 2) {
+  ourArray.push(i);
+}
+  @param CHALLENGE
+  Push the odd numbers from 1 through 9 to myArray using a for loop.
+ */
+const myArray9 = [];
+
+for (let i = 1; i < 10; i += 2) {
+  myArray9.push(i);
+}
+console.log(myArray9);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+   * Count Backwards With a For Loop
+A for loop can also count backwards, so long as we can define the right conditions.
+
+In order to decrement by two each iteration, we'll need to change our initialization, condition, and final expression.
+
+We'll start at i = 10 and loop while i > 0. We'll decrement i by 2 each loop with i -= 2.
+Example Syntax
+const ourArray = [];
+
+for (let i = 10; i > 0; i -= 2) {
+  ourArray.push(i);
+}
+@param CHALLENGE
+Push the odd numbers from 9 through 1 to myArray using a for loop.
+   */
+const myArray10 = [];
+//SOLUTION
+for (let i = 9; i > 0; i -= 2) {
+  myArray10.push(i);
+}
+console.log(myArray10);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Iterate Through an Array with a For Loop}
+A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a for loop. This code will output each element of the array arr to the console:
+
+Example Syntax
+const arr = [10, 9, 8, 7, 6];
+for (let i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+   @param CHALLENGE
+   Declare and initialize a variable total to 0. Use a for loop to add the value of each element of the myArr array to total.
+ */
+const myArr1 = [2, 3, 4, 5, 6];
+//SOLUTION
+let total = 0;
+for (let i = 0; i < myArr1.length; i++) {
+  total += myArr1[i];
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
