@@ -1549,3 +1549,88 @@ for (let i = 0; i < myArr1.length; i++) {
   total += myArr1[i];
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
+/** June 21 2024 DSA Challenges
+ * @param {Nesting For Loops}
+ * 
+If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:
+const arr = [
+  [1, 2], [3, 4], [5, 6]
+];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+  }
+}
+  This outputs each sub-element in arr one at a time. Note that for the inner loop, we are checking the .length of arr[i], since arr[i] is itself an array.
+  @param CHALLENGE
+  Modify function multiplyAll so that it returns the product of all the numbers in the sub-arrays of arr.
+ */
+function multiplyAll(arr) {
+  let product = 1;
+  //SOLUTION
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+  return product;
+}
+
+multiplyAll([
+  [1, 2],
+  [3, 4],
+  [5, 6, 7],
+]);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Iterate with JavaScript Do...While Loops}
+The next type of loop you will learn is called a do...while loop. It is called a do...while loop because it will first do one pass of the code inside the loop no matter what, and then continue to run the loop while the specified condition evaluates to true.
+Example Syntax
+const ourArray = [];
+let i = 0;
+
+do {
+  ourArray.push(i);
+  i++;
+} while (i < 5);
+The example above behaves similar to other types of loops, and the resulting array will look like [0, 1, 2, 3, 4]. However, what makes the do...while different from other loops is how it behaves when the condition fails on the first check. Let's see this in action. Here is a regular while loop that will run the code in the loop as long as i < 5:
+@param CHALLENGE
+Change the while loop in the code to a do...while loop so the loop will push only the number 10 to myArray, and i will be equal to 11 when your code has finished running.
+ */
+const myArray11 = [];
+let dw = 10;
+
+// Only change code below this line
+do {
+  myArray11.push(dw);
+  dw++;
+} while (dw < 5);
+/////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Replace Loops using Recursion}
+Recursion is the concept that a function can be expressed in terms of itself. To help understand this, start by thinking about the following task: multiply the first n elements of an array to create the product of those elements. Using a for loop, you could do this:
+
+Note: Recursive functions must have a base case when they return without calling the function again (in this example, when n <= 0), otherwise they can never finish executing.
+Example Syntax
+  function multiply(arr, n) {
+    if (n <= 0) {
+      return 1;
+    } else {
+      return multiply(arr, n - 1) * arr[n - 1];
+    }
+  }
+Write a recursive function, sum(arr, n), that returns the sum of the first n elements of an array arr.
+ */
+function sum1(arr, n) {
+  if (n == 0) {
+    return 0;
+  } else {
+    return sum1(arr, n - 1) + arr[n - 1];
+  }
+}
+/* Base Case: When n is 0, the function returns 0. This is because the sum of the first 0 elements is 0.
+Recursive Case: When n is not 0, the function calls itself with n - 1 and adds the (n-1)th element of the array to the result of the recursive call. This effectively sums the first n-1 elements and then adds the nth element.*/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
