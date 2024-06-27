@@ -1633,4 +1633,99 @@ function sum1(arr, n) {
 Recursive Case: When n is not 0, the function calls itself with n - 1 and adds the (n-1)th element of the array to the result of the recursive call. This effectively sums the first n-1 elements and then adds the nth element.*/
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * /**
+ * @param {Profile Lookup}
+ * June 25, 2024
+ *
+ * CHALLENGE:
+ * We have an array of objects representing different people in our contacts list.
+ * A lookUpProfile function that takes a name and a property (prop) as arguments has been pre-written for you.
+ * The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+ * If both are true, then return the "value" of that property.
+ * If name does not correspond to any contacts then return the string "No such contact."
+ * If prop does not correspond to any valid properties of a contact found to match name then return the string "No such property."
+ */
 
+const contacts = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+// Solution
+function lookUpProfile(name, prop) {
+  // Iterate through the contacts array
+  for (let i = 0; i < contacts.length; i++) {
+    // Check if the current contact's firstName matches the provided name
+    if (contacts[i].firstName === name) {
+      // If the property (prop) exists in the contact, return its value
+      // Otherwise, return "No such property"
+      return contacts[i][prop] || "No such property";
+      // Tennary alternative solution
+      // return contacts[i][prop] ? contacts[i][prop] : "No such property";
+    }
+  }
+  // If no contact matches the provided name, return "No such contact"
+  return "No such contact";
+}
+
+// Testing the function
+lookUpProfile("Akira", "likes"); // Should return ["Pizza", "Coding", "Brownie Points"]
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/** June 26 2024
+ * @param {Generate Random Fractions with JavaScript}
+Random numbers are useful for creating random behavior.
+
+JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and 1 (exclusive). Thus Math.random() can return a 0 but never return a 1.
+@param CHALLENGE
+Change randomFraction to return a random number instead of returning 0.
+ */
+const randomNumber = () => {
+  //solution
+  return Math.random();
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Generate Random Whole Numbers with JavaScript}
+You can generate random decimal numbers with Math.random(), but sometimes you need to generate random whole numbers. The following process will give you a random whole number less than 20:
+
+Use Math.random() to generate a random decimal number.
+Multiply that random decimal number by 20.
+Use Math.floor() to round this number down to its nearest whole number.
+Remember that Math.random() can never quite return a 1, so it's impossible to actually get 20 since you are rounding down with Math.floor(). This process will give you a random whole number in the range from 0 to 19.
+
+Putting everything together, this is what your code looks like:
+
+@param { Math.floor(Math.random() * 20) }
+We  are calling Math.random(), multiplying the result by 20, then passing the value to Math.floor() to round the value down to the nearest whole number.
+
+@param CHALLENGE
+Use this technique to generate and return a random whole number in the range from 0 to 9.
+ */
+function randomWholeNum() {
+  //Solution
+  return Math.floor(Math.random() * 10);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
