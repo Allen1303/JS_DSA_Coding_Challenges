@@ -1728,4 +1728,59 @@ function randomWholeNum() {
   //Solution
   return Math.floor(Math.random() * 10);
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/** June 28 2024
+ * @param {Generate Random Whole Numbers within a Range}
+You can generate a random whole number in the range from zero to a given number. You can also pick a different lower number for this range.
+
+You'll call your minimum number min and your maximum number max.
+
+This formula gives a random whole number in the range from min to max. Take a moment to read it and try to understand what this code is doing:
+Example Syntax
+Math.floor(Math.random() * (max - min + 1)) + min
+@param CHALLENGE
+Create a function called randomRange that takes a range myMin and myMax and returns a random whole number that's greater than or equal to myMin and less than or equal to myMax.
+ */
+
+function randomRange(myMin, myMax) {
+  /*Getting a random decimal between 0 and 1.
+Multiplying it by the range (difference between max and min) and adding 1 to include max.
+Rounding the result down to the nearest whole number.*/
+  return Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+}
+
+randomRange(5, 15);
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Use the parseInt Function}
+The parseInt() function parses a string and returns an integer. Here's an example:
+Example Syntax:
+const a = parseInt("007");
+
+The above function converts the string 007 to the integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
+@param CHALLENGE
+Use parseInt() in the convertToInteger function so it converts the input string str into an integer, and returns it.
+ */
+const convertToInteger = (str) => {
+  //Solution
+  return parseInt(str);
+};
+convertToInteger("75");
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Use the parseInt Function with a Radix}
+The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
+The function call looks like:
+Example Syntax
+parseInt(string, radix);
+And here's an example:
+const a = parseInt("11", 2);
+The radix variable says that 11 is in the binary system, or base 2. This example converts the string 11 to an integer 3.
+@param CHALLENGE
+Use parseInt() in the convertToInteger function so it converts a binary number to an integer and returns it.
+ */
+const radixConverter = (str) => {
+  return parseInt(str, 2);
+};
+// In binary representation, each digit's position to the left signifies a power of 2. The rightmost digit (1 in this case) represents 2^0 (1), the next position (0) represents 2^1 (2), and so on
+radixConverter("10011");
