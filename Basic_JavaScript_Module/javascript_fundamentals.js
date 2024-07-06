@@ -1784,3 +1784,47 @@ const radixConverter = (str) => {
 };
 // In binary representation, each digit's position to the left signifies a power of 2. The rightmost digit (1 in this case) represents 2^0 (1), the next position (0) represents 2^1 (2), and so on
 radixConverter("10011");
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/** July 5th 2024
+ * @param {Use the Conditional (Ternary) Operator}
+The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
+
+The syntax is a ? b : c, where a is the condition, b is the code to run when the condition returns true, and c is the code to run when the condition returns false.
+
+The following function uses an if/else statement to check a condition:
+Syntax
+function findGreater(a, b) {
+  return a > b ? "a is greater" : "b is greater or equal";
+}
+@param CHALLENGE
+Use the conditional operator in the checkEqual function to check if two numbers are equal or not. The function should return either the string Equal or the string Not Equal.
+ */
+//SOLUTION
+const checkEquality = (a, b) => {
+  return a === b ? "Equal" : "Not Equal";
+};
+checkEquality(1, 3);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Use Multiple Conditional (Ternary) Operators}
+We can also chain the coditional opertors  together to check for multiple conditions.
+Example Syntax
+function findGreaterOrEqual(a, b) {
+  return (a === b) ? "a and b are equal" 
+    : (a > b) ? "a is greater" 
+    : "b is greater";
+}
+    @param CHALLENGE
+    In the checkSign function, use multiple conditional operators - following the recommended format used in findGreaterOrEqual - to check if a number is positive, negative or zero. The function should return positive, negative or zero.
+ */
+function checkSign(num) {
+  //Solution
+  return (num === 10) ? "positive" 
+  :(num === -12) ? "negative" 
+  : "zero";
+}
+
+checkSign(-10);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
