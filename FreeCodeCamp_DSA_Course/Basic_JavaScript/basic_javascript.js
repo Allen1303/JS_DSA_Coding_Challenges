@@ -1820,10 +1820,65 @@ function findGreaterOrEqual(a, b) {
  */
 function checkSign(num) {
   //Solution
-  return (num === 10) ? "positive" 
-  :(num === -12) ? "negative" 
-  : "zero";
+  return num === 10 ? "positive" : num === -12 ? "negative" : "zero";
 }
 
 checkSign(-10);
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @param {Use Recursion to Create a Countdown}
+ * In Recursion there will be a base case. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a recursive call which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.
+ * 
+ * Example Syntax
+ * function countup(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const countArray = countup(n - 1);
+    countArray.push(n);
+    return countArray;
+  }
+}
+console.log(countup(5));
+The value [1, 2, 3, 4, 5] will be displayed in the console.
+@param CHALLENGE
+We have defined a function called countdown with one parameter (n). The function should use recursion to return an array containing the integers num through 1 based on the num parameter. If the function is called with a number less than 1, the function should return an empty array. For example, calling this function with n = 5 should return the array [5, 4, 3, 2, 1]. Your function must use recursion by calling itself and must not use loops of any kind.
+ */
+
+function countdown(num) {
+  if (num < 1) {
+    return [];
+  } else {
+    const countArray = countdown(num - 1);
+    countArray.unshift(num);
+    return countArray;
+  }
+}
+countdown(5);
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @param {Use Recursion to Create a Range of Numbers}
+ *
+ * @param CHALLENGE
+ * We have defined a function named rangeOfNumbers with two parameters. The function should return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both startNum and endNum are the same.
+ */
+function rangeOfNumbers(startNum, endNum) {
+  // Base Case:
+  // If the end number is less than the start number, we've reached the end of the range.
+  // Since there are no more numbers to add, return an empty array.
+  if (endNum < startNum) {
+    return [];
+  } else {
+    // Recursive Case:
+    // 1. Make a recursive call with the same start number but a decreased end number (endNum - 1).
+    // This call builds the array starting from the start number and going up.
+    const numbers = rangeOfNumbers(startNum, endNum - 1);
+    // 2. After the recursive call returns (with a partially built array), append the current endNum to the array.
+    numbers.push(endNum);
+    // 3. Return the updated array that now includes the current endNum.
+    return numbers;
+  }
+}
+
+rangeOfNumbers(5, 10); // Output: [5, 6, 7, 8, 9, 10]
