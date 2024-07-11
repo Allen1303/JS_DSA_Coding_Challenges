@@ -111,3 +111,72 @@ const myFunc = () => {
 const magic = () => {
   return new Date();
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/** July 10th 2024
+ * @param {Write Arrow Functions with Parameters}
+Just like a regular function, you can pass arguments into an arrow function.
+Example Syntax
+const doubler = (item) => item * 2;
+doubler(4);
+@param CHALLENGE
+Rewrite the myConcat function which appends contents of arr2 to arr1 so that the function uses arrow function syntax.
+ */
+// Solution
+const myConcat = (arr1, arr2) => {
+  return arr1.concat(arr2);
+};
+
+console.log(myConcat([1, 2], [3, 4, 5]));
+
+/**
+ * @param {Set Default Parameters for Your Functions}
+In order to help us create more flexible functions, ES6 introduces default parameters for functions.
+
+@param CHALLENGE
+ Modify the function increment by adding default parameters so that it will add 1 to number if value is not specified.
+ */
+// Solution
+const increment = (number, value = 1) => number + value;
+console.log(increment());
+console.log(increment(5, 2));
+console.log(increment(5));
+
+/**
+ * @param {Use the Rest Parameter with Function Parameters}
+In order to help us create more flexible functions, ES6 introduces the rest parameter for function parameters. With the rest parameter, you can create functions that take a variable number of arguments. These arguments are stored in an array that can be accessed later from inside the function.
+
+@param CHALLENGE
+Modify the function sum using the rest parameter in such a way that the function sum is able to take any number of arguments and return their sum.
+ */
+const sum = (...args) => {
+  // const args = [x, y, z];
+  //Solution
+  let total = 0;
+  for (let index = 0; index < args.length; index++) {
+    total += args[index];
+  }
+  return total;
+};
+console.log(5, 10, 15);
+
+/**
+ * @param {Use the Spread Operator to Evaluate Arrays In-Place}
+ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
+
+The ES5 code below uses apply() to compute the maximum value in an array:
+Example Syntax
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr);
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr);
+
+@param CHALLENGE
+Copy all contents of arr1 into another array arr2 using the spread operator.
+ */
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+let arr2;
+//Solution
+arr2 = [...arr1]; // Updated this line with the spread operator
+
+console.log(arr2);
