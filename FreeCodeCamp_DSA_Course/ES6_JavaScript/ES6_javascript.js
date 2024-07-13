@@ -319,3 +319,153 @@ function removeFirstTwo(list) {
 const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const sourceWithoutFirstTwo = removeFirstTwo(source);
 //////////////////////////////////////////////////////////////////////////////////////////
+
+/** July 12 2024
+ * @param {Use Destructuring Assignment to Pass an Object as a Function's Parameters}
+In some cases, you can destructure the object in a function argument itself.
+
+Example  code below:
+
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+
+}
+This effectively destructures the object sent into the function. This can also be done in-place:
+
+const profileUpdate = ({ name, age, nationality, location }) => {
+
+}
+When profileData is passed to the above function, the values are destructured from the function parameter for use within the function.
+@param CHALLENGE
+Use destructuring assignment within the argument to the function half to send only max and min inside the function.
+ */
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85,
+};
+
+// Solution
+const half = ({ max, min }) => (max + min) / 2.0;
+
+/**
+ *@param { Create Strings using Template Literals}
+A new feature of ES6 is the template literal. This is a special type of string that makes creating complex strings easier.
+
+Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
+
+Example code below:
+
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+};
+
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+
+@param CHALLENGE
+Use template literal syntax with backticks to create an array of list element (li) strings. Each list element's text should be one of the array elements from the failure property on the result object and have a class attribute with the value text-warning. The makeList function should return the array of list item strings.
+
+Use an iterator method (any kind of loop) to get the desired output (shown below).
+[
+  '<li class="text-warning">no-var</li>',
+  '<li class="text-warning">var-on-top</li>',
+  '<li class="text-warning">linebreak</li>'
+]
+ */
+const result = {
+  success: ["max-length", "no-amd", "prefer-arrow-functions"],
+  failure: ["no-var", "var-on-top", "linebreak"],
+  skipped: ["no-extra-semi", "no-dup-keys"],
+};
+function makeList(arr) {
+  // Only change code below this line
+  const failureItems = [];
+  for (let ii = 0; ii < arr.length; ii++) {
+    const listItems = `<li class="text-warning">${arr[ii]}</li>`;
+    failureItems.push(listItems);
+  }
+  // Only change code above this line
+
+  return failureItems;
+}
+
+const failuresList = makeList(result.failure);
+
+/**
+ * @param {Write Concise Object Literal Declarations Using Object Property Shorthand}
+ES6 adds some nice support for easily defining object literals.
+getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted to x: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+
+without object Literal Syntax
+ const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+Example with Object literals Syntax
+const getMousePosition = (x, y) => ({ x, y });
+@param CHALLENGE
+Use object property shorthand with object literals to create and return an object with name, age and gender properties.
+ */
+const createPerson = (name, age, gender) => {
+  // Only change code below this line
+  // return {
+  //   name: name,
+  //   age: age,
+  //   gender: gender
+  // };
+  //SOLUTION
+  return ({ name, age, gender });
+};
+
+/**
+ * @param {Write Concise Declarative Functions with ES6}
+When defining functions within objects in ES5, we have to use the keyword function as follows:
+
+const person = {
+  name: "Taylor",
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+With ES6, you can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+ */
+
+const bicycle = {
+  gear: 2,
+  //SOLUTION
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+// Only change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+/**
+ * @param {Use class Syntax to Define a Constructor Function}
+ES6 provides a new syntax to create objects, using the class keyword.
+
+In ES5, an object can be created by defining a constructor function and using the new keyword to instantiate the object.
+
+In ES6, a class declaration has a constructor method that is invoked with the new keyword. If the constructor method is not explicitly defined, then it is implicitly defined with no arguments.
+@param CHALLENGE
+Use the class keyword and write a constructor to create the Vegetable class.
+
+The Vegetable class allows you to create a vegetable object with a property name that gets passed to the constructor.
+ */
+class Vegetable{
+  // SOLUTION
+  constructor(name){
+this.name = name;
+  }
+}
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'
