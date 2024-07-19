@@ -468,4 +468,70 @@ this.name = name;
   }
 }
 const carrot = new Vegetable('carrot');
-console.log(carrot.name); // Should display 'carrot'
+console.log(carrot.name); // 'carrot'
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+/** July 18 2024
+ * @param {Use getters and setters to Control Access to an Object}
+You can obtain values from an object and set the value of a property within an object.
+
+These are classically called getters and setters.
+
+Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
+Example Syntax
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+const novel = new Book('anonymous');
+console.log(novel.writer);
+novel.writer = 'newAuthor';
+console.log(novel.writer);
+
+@param CHALLENGE
+Use the class keyword to create a Thermostat class. The constructor accepts a Fahrenheit temperature.
+
+In the class, create a getter to obtain the temperature in Celsius and a setter that accepts a temperature in Celsius.
+
+Remember that C = 5/9 * (F - 32) and F = C * 9.0 / 5 + 32, where F is the value of temperature in Fahrenheit, and C is the value of the same temperature in Celsius.
+
+Note: When you implement this, you will track the temperature inside the class in one scale, either Fahrenheit or Celsius.
+ */
+
+// Solution
+class Thermostat{
+  constructor(fahrenheitTemp){
+    this.fahrenheitTemp = fahrenheitTemp
+
+  }
+  get temperature(){
+    return 5/9 * (this._fahrenheitTemp - 32);
+  }
+/**
+ * Sets the temperature in Celsius and converts it to Fahrenheit.
+ * 
+ * @param {number} celsiusTemp - The temperature in Celsius.
+ */
+set temperature(celsiusTemp) {
+  this._fahrenheitTemp = celsiusTemp * 9.0 / 5 + 32;
+}
+
+}
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
