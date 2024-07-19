@@ -422,7 +422,7 @@ const createPerson = (name, age, gender) => {
   //   gender: gender
   // };
   //SOLUTION
-  return ({ name, age, gender });
+  return { name, age, gender };
 };
 
 /**
@@ -443,7 +443,7 @@ const bicycle = {
   //SOLUTION
   setGear(newGear) {
     this.gear = newGear;
-  }
+  },
 };
 // Only change code above this line
 bicycle.setGear(3);
@@ -461,13 +461,13 @@ Use the class keyword and write a constructor to create the Vegetable class.
 
 The Vegetable class allows you to create a vegetable object with a property name that gets passed to the constructor.
  */
-class Vegetable{
+class Vegetable {
   // SOLUTION
-  constructor(name){
-this.name = name;
+  constructor(name) {
+    this.name = name;
   }
 }
-const carrot = new Vegetable('carrot');
+const carrot = new Vegetable("carrot");
 console.log(carrot.name); // 'carrot'
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -511,26 +511,25 @@ Note: When you implement this, you will track the temperature inside the class i
  */
 
 // Solution
-class Thermostat{
-  constructor(fahrenheitTemp){
-    this.fahrenheitTemp = fahrenheitTemp
-
+class Thermostat {
+  constructor(fahrenheitTemp) {
+    this.fahrenheitTemp = fahrenheitTemp;
   }
-  get temperature(){
-    return 5/9 * (this._fahrenheitTemp - 32);
+  /**
+   * Gets the temperature in Celsius based on the Fahrenheit temperature.
+   * @returns {number} The temperature in Celsius.
+   */
+  get temperature() {
+    return (5 / 9) * (this._fahrenheitTemp - 32);
   }
-/**
- * Sets the temperature in Celsius and converts it to Fahrenheit.
- * 
- * @param {number} celsiusTemp - The temperature in Celsius.
- */
-set temperature(celsiusTemp) {
-  this._fahrenheitTemp = celsiusTemp * 9.0 / 5 + 32;
+  /**
+   * Sets the temperature in Celsius and converts it to Fahrenheit.
+   * @param {number} celsiusTemp - The temperature in Celsius.
+   */
+  set temperature(celsiusTemp) {
+    this._fahrenheitTemp = (celsiusTemp * 9.0) / 5 + 32;
+  }
 }
-
-}
-// Only change code above this line
-
 const thermos = new Thermostat(76); // Setting in Fahrenheit scale
 let temp = thermos.temperature; // 24.44 in Celsius
 thermos.temperature = 26;
