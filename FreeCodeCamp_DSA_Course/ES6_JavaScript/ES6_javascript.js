@@ -534,3 +534,116 @@ const thermos = new Thermostat(76); // Setting in Fahrenheit scale
 let temp = thermos.temperature; // 24.44 in Celsius
 thermos.temperature = 26;
 temp = thermos.temperature; // 26 in Celsius
+///////////////////////////////////////////////////////////////////////////////////////////
+/** July 31 2024
+ * 
+ * @param JavaScript evolved from a small role to a dominant web force. To manage this growth, ES6 introduced modules for code sharing. Export code from one file and import it where needed, using type="module" in your HTML script tag.
+example Syntax
+{<script type="module" src="filename.js"></script>}
+
+ /* @param {Using the Export method in JavaScript}
+
+Use export to Share a Code Block
+Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+
+Example Snytax
+export const add = (x, y) => {
+  return x + y;
+}
+The above is a common way to export a single function, but you can achieve the same thing like this:
+
+const add = (x, y) => {
+  return x + y;
+}
+Example Syntax
+export { add };
+When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
+
+Examole Syntax
+export { add, subtract };
+
+@param CHALLENGE
+There are two string-related functions in the editor. Export both of them using the method of your choice.
+ */
+const uppercaseString = (string) => {
+  return string.toUpperCase();
+}
+
+const lowercaseString = (string) => {
+  return string.toLowerCase()
+}
+//Solution
+export {uppercaseString, lowercaseString}
+
+/**
+ * @param {Reuse JavaScript Code Using import}
+import allows you to choose which parts of a file or module to load. For example exported add from the math_functions.js file. Here's how you can import it to use in another file:
+
+
+Example Syntax
+import { add } from './math_functions.js';
+Here, import will find add in math_functions.js, import just that function for you to use, and ignore the rest. The ./ tells the import to look for the math_functions.js file in the same folder as the current file. The relative file path (./) and file extension (.js) are required when using import in this way.
+
+We can import more than one item from the file by adding them in the import statement like this:
+
+Syntax example.
+import { add, subtract } from './math_functions.js';
+
+@param CHALLENGE
+Add the appropriate import statement that will allow the current file to use the uppercaseString and lowercaseString functions you exported in the previous lesson. These functions are in a file called string_functions.js, which is in the same directory as the current file.
+ */
+//Solution Syntax
+import {uppercaseString, lowercaseString} from './string_functions.js';
+uppercaseString("hello");
+lowercaseString("WORLD!");
+
+/**
+ *@param { Use * to Import Everything from a File }
+Suppose you have a file and you wish to import all of its contents into the current file. This can be done with the import * as syntax. Here's an example where the contents of a file named math_functions.js are imported into a file in the same directory:
+
+Syntax Example
+import * as myMathModule from "./math_functions.js";
+The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
+@param CHALLENGE
+The code in this file requires the contents of the file: string_functions.js, that is in the same directory as the current file. Use the import * as syntax to import everything from the file into an object called stringFunctions.
+ */
+//Solution
+import * as stringFunctions from './string_functions.js';
+// Only change code above this line
+
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
+
+/** 
+ *@param {Create an Export Fallback with export default}
+In the export lesson,we learned about the syntax referred to as a named export. This allowed us to make multiple functions and variables available for use in other files.
+
+There is another export syntax we need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+Syntax examples using export default:
+
+export default function add(x, y) {
+  return x + y;
+}
+
+export default function(x, y) {
+  return x + y;
+}
+The first is a named function, and the second is an anonymous function.
+
+Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
+
+@param TASK
+The following function should be the fallback value for the module. Please add the necessary code to do so.
+
+function subtract(x, y) {
+  return x - y;
+}
+*/
+//Solution
+export default function subtract(x, y) {
+  return x - y;
+}
