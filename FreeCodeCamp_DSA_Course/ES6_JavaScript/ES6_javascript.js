@@ -567,13 +567,13 @@ There are two string-related functions in the editor. Export both of them using 
  */
 const uppercaseString = (string) => {
   return string.toUpperCase();
-}
+};
 
 const lowercaseString = (string) => {
-  return string.toLowerCase()
-}
+  return string.toLowerCase();
+};
 //Solution
-export {uppercaseString, lowercaseString}
+export { uppercaseString, lowercaseString };
 
 /**
  * @param {Reuse JavaScript Code Using import}
@@ -593,7 +593,7 @@ import { add, subtract } from './math_functions.js';
 Add the appropriate import statement that will allow the current file to use the uppercaseString and lowercaseString functions you exported in the previous lesson. These functions are in a file called string_functions.js, which is in the same directory as the current file.
  */
 //Solution Syntax
-import {uppercaseString, lowercaseString} from './string_functions.js';
+import { uppercaseString, lowercaseString } from "./string_functions.js";
 uppercaseString("hello");
 lowercaseString("WORLD!");
 
@@ -611,7 +611,7 @@ myMathModule.subtract(5,3);
 The code in this file requires the contents of the file: string_functions.js, that is in the same directory as the current file. Use the import * as syntax to import everything from the file into an object called stringFunctions.
  */
 //Solution
-import * as stringFunctions from './string_functions.js';
+import * as stringFunctions from "./string_functions.js";
 // Only change code above this line
 
 stringFunctions.uppercaseString("hello");
@@ -648,3 +648,88 @@ export default function subtract(x, y) {
   return x - y;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
+/** Aug 1, 2024
+ * @param {Import a Default Export}
+In the last challenge, you learned about export default and its uses. To import a default export, you need to use a different import syntax. In the following example, add is the default export of the math_functions.js file. Here is how to import it:
+
+import add from "./math_functions.js";
+The syntax differs in one key place. The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
+
+@param CHALLENGE
+In the following code, import the default export from the math_functions.js file, found in the same directory as this file. Give the import the name subtract.
+ */
+
+//Solution and Syntax
+import subtract from "./math_functions.js";
+// Only change code above this line
+
+subtract(7, 4);
+
+/**
+ * @param {Create a JavaScript Promise}
+A promise in JavaScript is exactly what it sounds like - you use it to make a promise to do something, usually asynchronously. When the task completes, you either fulfill your promise or fail to do so. Promise is a constructor function, so you need to use the new keyword to create one. It takes a function, as its argument, with two parameters - resolve and reject. These are methods used to determine the outcome of the promise. The syntax looks like this:
+
+const myPromise = new Promise((resolve, reject) => {
+
+});
+@param CHALLENGE
+Create a new promise called makeServerRequest. Pass in a function with resolve and reject parameters to the constructor.
+ */
+//Solution and Syntax
+const makeServerRequest = new Promise((resolve, reject) => {});
+
+/**
+ * @param {Complete a Promise with resolve and reject}
+A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
+
+Example Syntax
+const myPromise = new Promise((resolve, reject) => {
+  if(condition here) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected");
+  }
+});
+The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+
+Make the promise handle success and failure. If responseFromServer is true, call the resolve method to successfully complete the promise. Pass resolve a string with the value We got the data. If responseFromServer is false, use the reject method instead and pass it the string: Data not received.
+ */
+const ServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer represents a response from a server
+  let responseFromServer;
+
+  if (responseFromServer) {
+    //Solution
+    resolve("We got the data");
+  } else {
+    //Solution
+    reject("Data not received");
+  }
+});
+/**
+ * @param { Handle a Fulfilled Promise with then}
+Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method.
+
+Promise.prototype.then(onFulfilled, onRejected)
+The then method schedules callback functions for the eventual completion of a Promise - either fulfillment or rejection. One of the onFulfilled and onRejected handlers will be executed to handle the current promise's fulfillment or rejection. When the promise is fulfilled with resolve the onFulfilled handler is called.
+
+myPromise.then(result => {
+  
+});
+result comes from the argument given to the resolve method.
+
+Add the then method to your promise. Use result as the parameter of its callback function and log result to the console.
+ */
+const makeServerRequest2 = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  let responseFromServer = true;
+  if (responseFromServer) {
+    resolve("We got the data");
+  } else {
+    reject("Data not received");
+  }
+});
+//Soluion and Syntax.
+makeServerRequest2.then((result) => {
+  console.log(result);
+});
