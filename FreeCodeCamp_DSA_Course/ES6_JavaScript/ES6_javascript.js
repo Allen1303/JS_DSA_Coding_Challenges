@@ -593,7 +593,7 @@ import { add, subtract } from './math_functions.js';
 Add the appropriate import statement that will allow the current file to use the uppercaseString and lowercaseString functions you exported in the previous lesson. These functions are in a file called string_functions.js, which is in the same directory as the current file.
  */
 //Solution Syntax
-import { uppercaseString, lowercaseString } from "./string_functions.js";
+import { uppercaseString2, lowercaseString2 } from "./string_functions.js";
 uppercaseString("hello");
 lowercaseString("WORLD!");
 
@@ -614,8 +614,8 @@ The code in this file requires the contents of the file: string_functions.js, th
 import * as stringFunctions from "./string_functions.js";
 // Only change code above this line
 
-stringFunctions.uppercaseString("hello");
-stringFunctions.lowercaseString("WORLD!");
+stringFunctions.uppercaseString2("hello");
+stringFunctions.lowercaseString2("WORLD!");
 
 /** 
  *@param {Create an Export Fallback with export default}
@@ -660,10 +660,10 @@ In the following code, import the default export from the math_functions.js file
  */
 
 //Solution and Syntax
-import subtract from "./math_functions.js";
+import subtract1 from "./math_functions.js";
 // Only change code above this line
 
-subtract(7, 4);
+subtract1(7, 4);
 
 /**
  * @param {Create a JavaScript Promise}
