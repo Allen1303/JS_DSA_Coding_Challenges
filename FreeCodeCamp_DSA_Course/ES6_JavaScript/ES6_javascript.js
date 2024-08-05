@@ -392,7 +392,6 @@ function makeList(arr) {
     const listItems = `<li class="text-warning">${arr[ii]}</li>`;
     failureItems.push(listItems);
   }
-  // Only change code above this line
 
   return failureItems;
 }
