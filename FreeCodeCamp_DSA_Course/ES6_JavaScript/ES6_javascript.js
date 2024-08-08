@@ -169,7 +169,7 @@ Example Syntax
 var arr = [6, 89, 3, 45];
 var maximus = Math.max.apply(null, arr);
 const arr = [6, 89, 3, 45];
-const maximus = Math.max(...arr);
+const maximus = Math.max(...arr); 
 
 @param CHALLENGE
 Copy all contents of arr1 into another array arr2 using the spread operator.
