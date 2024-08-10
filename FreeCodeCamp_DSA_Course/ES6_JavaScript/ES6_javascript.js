@@ -108,9 +108,7 @@ const myFunc = () => {
 
  */
 //Solution
-const magic = () =>  new Date();
-
-
+const magic = () => new Date();
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 /** July 10th 2024
@@ -454,7 +452,8 @@ ES6 provides a new syntax to create objects, using the class keyword.
 
 In ES5, an object can be created by defining a constructor function and using the new keyword to instantiate the object.
 
-In ES6, a class declaration has a constructor method that is invoked with the new keyword. If the constructor method is not explicitly defined, then it is implicitly defined with no arguments.
+In ES6, a class declaration has a constructor method that is invoked with the new keyword. 
+If the constructor method is not explicitly defined, then it is implicitly defined with no arguments.
 @param CHALLENGE
 Use the class keyword and write a constructor to create the Vegetable class.
 
@@ -536,14 +535,17 @@ temp = thermos.temperature; // 26 in Celsius
 ///////////////////////////////////////////////////////////////////////////////////////////
 /** July 31 2024
  * 
- * @param JavaScript evolved from a small role to a dominant web force. To manage this growth, ES6 introduced modules for code sharing. Export code from one file and import it where needed, using type="module" in your HTML script tag.
+ * @param JavaScript evolved from a small role to a dominant web force. To manage this growth, ES6 introduced modules 
+ * for code sharing. Export code from one file and import it where needed, using type="module" in your HTML script tag.
 example Syntax
 {<script type="module" src="filename.js"></script>}
 
  /* @param {Using the Export method in JavaScript}
 
 Use export to Share a Code Block
-Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+Imagine a file called math_functions.js that contains several functions related to mathematical operations. 
+One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this
+ function in several different JavaScript files. In order to share it with these other files, you first need to export it.
 
 Example Snytax
 export const add = (x, y) => {
@@ -556,7 +558,9 @@ const add = (x, y) => {
 }
 Example Syntax
 export { add };
-When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
+When you export a variable or function, you can import it in another file and use it without having to rewrite the code. 
+We can export multiple things by repeating the first example for each thing you want to export, or by placing 
+them all in the export statement of the second example, like this:
 
 Examole Syntax
 export { add, subtract };
