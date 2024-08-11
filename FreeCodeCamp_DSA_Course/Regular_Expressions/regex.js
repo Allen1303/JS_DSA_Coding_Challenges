@@ -235,5 +235,111 @@ For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that
 Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex. */
 
 let quoteSample4 = "3 blind mice.";
-let quoteRegex2 = /[^aeiou0-3]/ig;
+let quoteRegex2 = /[^aeiou0-3]/gi;
 let result10 = quoteSample4.match(quoteRegex2);
+
+//////////////////////////////////////////////////////////////////////////////////////
+/** Aug 11 2024
+ * @param {Match Characters that Occur One or More Times}
+Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. This means it occurs at least once, and may be repeated.
+
+You can use the + character to check if that is the case. Remember, the character or pattern has to be present consecutively. That is, the character has to repeat one after the other.
+
+For example, /a+/g would find one match in abc and return ["a"]. Because of the +, it would also find a single match in aabc and return ["aa"].
+
+If it were instead checking the string abab, it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no a in the string bcd, it wouldn't find a match.
+@param CHALLENGE
+find matches when the letter s occurs one or more times in Mississippi. Write a regex that uses the + sign.
+ */
+
+let difficultSpelling = "Mississippi";
+let myRegex2 = /s+/g;
+let result11 = difficultSpelling.match(myRegex2);
+
+/**
+ * @param {Match Characters that Occur Zero or More Times}
+The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+
+The character to do this is the asterisk or star: *.
+
+/*let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*;/
+soccerWord.match(goRegex);
+gPhrase.match(goRegex);
+oPhrase.match(goRegex);
+In order, the three match calls would return the values ["goooooooo"], ["g"], and null.
+@param CHALLENGE
+For this challenge, chewieQuote has been initialized as the string Aaaaaaaaaaaaaaaarrrgh! behind the scenes. Create a regex chewieRegex that uses the * character to match an uppercase A character immediately followed by zero or more lowercase a characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+ */
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/;
+let result12 = chewieQuote.match(chewieRegex);
+
+/**
+ * @param {Find Characters with Lazy Matching}
+In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+
+You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+
+However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+
+Note: Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+
+@param CHALLENGE
+Fix the regex /<.*>/ to return the HTML tag <h1> and not the text "<h1>Winter is coming</h1>". Remember the wildcard . in a regular expression matches any character.
+
+ */
+let text = "<h1>Winter is coming</h1>";
+let textRegex = /<.h*?1>/;
+// The regex <.h*?1> works as follows:
+// - The dot (.) matches any single character (including the 'h').
+// - The h*? matches 'h' zero or more times, but the (?) after (*) i.e. lazy match,  matches as few characters as possible.
+let result13 = text.match(textRegex);
+
+/**
+ * @param {Find One or More Criminals in a Hunt}
+Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+
+Here's an example to review how to do this:
+
+The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+
+"z"
+"zzzzzz"
+"ABCzzzz"
+"zzzzABC"
+"abczzzzzzzzzzzzzzzzzzzzzabc"
+But it does not find matches in the following strings since there are no letter z characters:
+
+""
+"ABC"
+"abcabc"
+@param CHALLENGE
+Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+ */
+//Solution
+let regCriminals = / C+/;
+
+/**
+ * @param Match Beginning String Patterns
+Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
+
+In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+The first test call would return true, while the second would return false.
+@param CHALLENGE
+Use the caret character in a regex to find Cal only in the beginning of the string rickyAndCal.
+ */
+let rickyAndCal = "Cal and Ricky both like racing.";
+//Solution
+let calRegex = /^Cal/;
+let result14 = calRegex.test(rickyAndCal);
