@@ -44,7 +44,7 @@ Complete the regex waldoRegex to find "Waldo" in the string waldoIsHiding with a
 let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
 // Solution
 let waldoRegex = /Waldo/;
-let result = waldoRegex.test(waldoIsHiding);
+let result1 = waldoRegex.test(waldoIsHiding);
 
 /**
  * @param {Match a Literal String with Different Possibilities}
@@ -62,7 +62,7 @@ Complete the regex petRegex to match the pets dog, cat, bird, or fish.
 let petString = `James has a pet dog`;
 //Soluion
 let petRegex = /dog|cat|bird|fish/;
-let result = petRegex.test(petString);
+let result2 = petRegex.test(petString);
 
 /**
  * @param {Ignore Case While Matching}
@@ -75,10 +75,10 @@ You can match both cases using what is called a flag. There are other flags but 
 @param CHALLENGE
 Write a regex fccRegex to match freeCodeCamp, no matter its case. Your regex should not match any abbreviations or variations with spaces.
  */
-let myString = "FreeCodeCamp";
+let myString1 = "FreeCodeCamp2";
 //Solution
-let fccRegex = /freeCodeCamp/i;
-let result = fccRegex.test(myString);
+let fccRegex = /freeCodeCamp2/i;
+let result3 = fccRegex.test(myString1);
 
 /**
  * @param {Extract Matches}
@@ -104,4 +104,136 @@ Apply the .match() method to extract the string coding.
  */
 let extractStr = `Extract the word coding from this string`;
 let codingRegex = /coding/;
-let result = extractStr.match(codingRegex);
+let result4 = extractStr.match(codingRegex);
+///////////////////////////////////////////////////////////////////////////////////////////////
+/** Aug 10 2024
+ * @param {Find More Than the First Match}
+So far, you have only been able to extract or search a pattern once.
+
+let testStr = "Repeat, Repeat, Repeat";
+let ourRegex = /Repeat/;
+testStr.match(ourRegex);
+Here match would return ["Repeat"].
+
+To search or extract a pattern more than once, you can use the global search flag: g.
+
+let repeatRegex = /Repeat/g;
+testStr.match(repeatRegex);
+And here match returns the value ["Repeat", "Repeat", "Repeat"]
+
+@param CHALLENGE
+Using the regex starRegex, find and extract both Twinkle words from the string twinkleStar.
+NOTE: You can have multiple flags on your regex like /search/gi
+ */
+//Solution
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /Twinkle/gi; // (g i) represents the global and ignore flags.
+let result5 = twinkleStar.match(starRegex);
+
+/**
+ * @param {Match Anything with Wildcard Period}
+Sometimes you won't (or don't need to) know the exact characters in your patterns. Thinking of all words that match, say, a misspelling would take a long time. Luckily, you can save time using the wildcard character: .
+
+The wildcard character . will match any one character. The wildcard is also called dot and period. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match hug, huh, hut, and hum, you can use the regex /hu./ to match all four words.
+
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr);
+huRegex.test(hugStr);
+Both of these test calls would return true.
+
+@param CHALLENGE
+Complete the regex unRegex so that it matches the strings run, sun, fun, pun, nun, and bun. Your regex should use the wildcard character.
+ */
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /un./;
+let result6 = unRegex.test(exampleStr);
+
+/**
+ * @param {Match Single Character with Multiple Possibilities}
+You learned how to match literal patterns (/literal/) and wildcard character (/./). Those are the extremes of regular expressions, where one finds exact matches and the other matches everything. There are options that are a balance between the two extremes.
+
+You can search for a literal pattern with some flexibility with character classes. Character classes allow you to define a group of characters you wish to match by placing them inside square ([ and ]) brackets.
+
+For example, you want to match bag, big, and bug but not bog. You can create the regex /b[aiu]g/ to do this. The [aiu] is the character class that will only match the characters a, i, or u.
+
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex);
+bagStr.match(bgRegex);
+bugStr.match(bgRegex);
+bogStr.match(bgRegex);
+In order, the four match calls would return the values ["big"], ["bag"], ["bug"], and null.
+
+@param CHALLENGE
+Use a character class with vowels (a, e, i, o, u) in your regex vowelRegex to find all the vowels in the string quoteSample.
+NOTE: Be sure to match both upper- and lowercase vowels.
+ */
+let quoteSample =
+  "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+let vowelRegex = /[aeiou]/gi; // The square brackets define a character class that matches any one of the vowels (a, e, i, o, u).
+
+let result7 = quoteSample.match(vowelRegex);
+
+/**
+ * @param {Match Letters of the Alphabet}
+You saw how you can use character sets to specify a group of characters to match, but that's a lot of typing when you need to match a large range of characters (for example, every letter in the alphabet). Fortunately, there is a built-in feature that makes this short and simple.
+
+Inside a character set, you can define a range of characters to match using a hyphen character: -.
+
+For example, to match lowercase letters a through e you would use [a-e].
+
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex);
+batStr.match(bgRegex);
+matStr.match(bgRegex);
+In order, the three match calls would return the values ["cat"], ["bat"], and null.
+
+Match all the letters in the string quoteSample. Note: Be sure to match both uppercase and lowercase letters.
+ */
+let quoteSample2 = "The quick brown fox jumps over the lazy dog.";
+//
+// Solution
+let alphabetRegex = /[a-z]/gi;
+let result8 = quoteSample2.match(alphabetRegex);
+
+/**
+ * @param {Match Numbers and Letters of the Alphabet}
+Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+
+For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
+
+Also, it is possible to combine a range of letters and numbers in a single character set.
+
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex);
+
+@param CHALLENGE
+Create a single regex that matches a range of letters between h and s, and a range of numbers between 2 and 6. Remember to include the appropriate flags in the regex.
+ */
+let quoteSample3 = "Blueberry 3.141592653s are delicious.";
+//Solution
+let quoteRegex = /[h-s2-6]/gi; // matches charaters between h to s and numbers  2 to 6
+let result9 = quoteSample3.match(quoteRegex);
+
+/**
+ * @param {Match Single Characters Not Specified}
+So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. These types of character sets are called negated character sets.
+
+To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+
+For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+@param CHALLENGE
+Create a single regex that matches all characters that are not a number or a vowel. Remember to include the appropriate flags in the regex. */
+
+let quoteSample4 = "3 blind mice.";
+let quoteRegex2 = /[^aeiou0-3]/ig;
+let result10 = quoteSample4.match(quoteRegex2);
