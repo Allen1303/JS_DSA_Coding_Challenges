@@ -387,7 +387,7 @@ Use the shorthand character class \w to count the number of alphanumeric charact
  */
 let quoteSample1 = "The five boxing wizards jump quickly.";
 // Solution
-let alphabetRegexV2 = /\w/g; 
+let alphabetRegexV2 = /\w/g;
 let result16 = quoteSample1.match(alphabetRegexV2).length;
 ///////////////////////////////////////////////////////////////////////////////////////////
 /** Aug 17th 2024
@@ -425,5 +425,75 @@ let numRegex = /\d/; // lowercase d is shouthand character that saerches for num
 let result18 = movieName.match(numRegex).length;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/** Aug 20, 2024
+ * @param {Match All Non-Numbers}
+The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
 
+The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.
+@param CHALLENGE
+Use the shorthand character class for non-digits \D to count how many non-digits are in movie titles.
+ */
+let movieName1 = "2001: A Space Odyssey";
+let noNumRegex = /\D/g; // Change this line
+let result19 = movieName1.match(noNumRegex).length;
 
+/**
+ * @param {Restrict Possible Usernames}
+Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+1. The only numbers in the username have to be at the end. 
+2. Usernames can only use alphanumeric characters.
+3. There can be zero or more of them at the end. 
+4. Username cannot start with the number.
+5. Username letters can be lowercase and uppercase.
+6. Usernames have to be at least two characters long. 
+7. A two-character username can only use alphabet letters as characters.
+
+@param CHALLENGE
+Change the regex userCheck to fit the constraints listed above.
+ */
+let username = "JackOfAllTrades";
+//Solution
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+/**
+ * @param { ^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i}
+
+First Part: ^[a-z][a-z]+\d*$
+^: Matches the beginning of the string.
+[a-z]: Matches a single lowercase letter.
+[a-z]+: Matches one or more lowercase letters.
+\d*: Matches zero or more digits.
+$: Matches the end of the string.
+
+Second Part: ^[a-z]\d\d+$
+^: Matches the beginning of the string.
+[a-z]: Matches a single lowercase letter.
+\d\d: Matches exactly two digits.
+$: Matches the end of the string.
+ */
+
+/**
+ * @param {Match Whitespace}
+The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+This match call would return [" ", " "].
+
+@param CHALLENGE
+Change the regex countWhiteSpace to look for multiple whitespace characters in a string.
+ */
+let sample = "Whitespace is important in separating words";
+//Solution
+let countWhiteSpace = /\s/g;
+let result = sample.match(countWhiteSpace);
+
+/**
+ * @param
+ */
