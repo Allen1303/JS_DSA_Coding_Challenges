@@ -457,7 +457,7 @@ Change the regex userCheck to fit the constraints listed above.
 let username = "JackOfAllTrades";
 //Solution
 let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
-let result = userCheck.test(username);
+let result20 = userCheck.test(username);
 /**
  * @param { ^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i}
 
@@ -492,8 +492,8 @@ Change the regex countWhiteSpace to look for multiple whitespace characters in a
 let sample = "Whitespace is important in separating words";
 //Solution
 let countWhiteSpace = /\s/g;
-let result = sample.match(countWhiteSpace);
-
+let result21 = sample.match(countWhiteSpace);
+////////////////////////////////////////////////////////////////////////////////
 /**
  * @param
  */
