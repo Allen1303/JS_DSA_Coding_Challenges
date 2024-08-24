@@ -660,3 +660,70 @@ Then fix the code so that the regex that you have created is checked against myS
 let myString2 = "Eleanor Roosevelt";
 let myRegex3 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/;
 let result28 = myRegex3.test(myString2); // Change this line
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+/** AUG 23rd 2024
+ * @param {Reuse Patterns Using Capture Groups}
+Say you want to match a word that occurs multiple times like below.
+
+Example Code
+let repeatStr = "row row row your boat";
+You could use /row row row/, but what if you don't know the specific word repeated? Capture groups can be used to find repeated substrings.
+
+Capture groups are constructed by enclosing the regex pattern to be captured in parentheses. In this case, the goal is to capture a word consisting of alphanumeric characters so the capture group will be \w+ enclosed by parentheses: /(\w+)/.
+
+The substring matched by the group is saved to a temporary "variable", which can be accessed within the same regex using a backslash and the number of the capture group (e.g. \1). Capture groups are automatically numbered by the position of their opening parentheses (left to right), starting at 1.
+
+The example below matches a word that occurs thrice separated by spaces:
+
+Example Code
+let repeatRegex = /(\w+) \1 \1/;
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+Using the .match() method on a string will return an array with the matched substring, along with its captured groups.
+
+@param CHALLENGE
+Use capture groups in reRegex to match a string that consists of only the same number repeated exactly three times separated by single spaces.
+ */
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/; // Solution
+let result29 = reRegex.test(repeatNum);
+
+/**
+ * @param {Use Capture Groups to Search and Replace}
+Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
+
+You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+
+Example Code
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue");
+The replace call would return the string The sky is blue..
+
+You can also access capture groups in the replacement string with dollar signs ($).
+
+Example Code
+"Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+The replace call would return the string Camp Code.
+
+@param CHALLENGE
+Write a regex fixRegex using three capture groups that will search for each word in the string one two three. Then update the replaceText variable to replace one two three with the string three two one and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
+ */
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; //Solution
+let replaceText = "$3 $2 $1"; // Solution
+let result30 = str.replace(fixRegex, replaceText);
+
+/**
+ * @param {Remove Whitespace from Start and End}
+Sometimes whitespace characters around strings are not wanted but are there. Typical processing of strings is to remove the whitespace at the start and end of it.
+
+@param CHALLENGE
+Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+
+Note: The String.prototype.trim() method would work here, but you'll need to complete this challenge using regular expressions.
+ */
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // Solution
+let result31 = hello.replace(wsRegex, ""); // Solution
