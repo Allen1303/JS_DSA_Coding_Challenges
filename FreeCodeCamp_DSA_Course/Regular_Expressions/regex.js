@@ -660,6 +660,17 @@ Then fix the code so that the regex that you have created is checked against myS
 let myString2 = "Eleanor Roosevelt";
 let myRegex3 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/;
 let result28 = myRegex3.test(myString2); // Change this line
+
+/*(Franklin|Eleanor):
+This part matches either the name "Franklin" or "Eleanor". The vertical bar | acts as an "OR" operator in regular expressions.
+
+(([A-Z].?|[A-Z][a-z]+) )?:
+This part is optional due to the ? at the end. It matches a possible middle name or initial:
+
+[A-Z].?: Matches a single uppercase letter followed by an optional period (.). This would account for an initial like "F." or "E."
+[A-Z][a-z]+: Matches a capitalized word, starting with an uppercase letter followed by one or more lowercase letters. This would account for a middle name like "Delano."
+The space after the inner group ensures there is a space after the middle name or initial.
+Roosevelt:*/
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 /** AUG 23rd 2024
