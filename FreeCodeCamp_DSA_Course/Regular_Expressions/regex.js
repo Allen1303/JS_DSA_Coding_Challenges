@@ -658,7 +658,7 @@ Fix the regex so that it checks for the names of Franklin Roosevelt or Eleanor R
 Then fix the code so that the regex that you have created is checked against myString and either true or false is returned depending on whether the regex matches.
  */
 let myString2 = "Eleanor Roosevelt";
-let myRegex3 = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/;
+let myRegex3 =  ;
 let result28 = myRegex3.test(myString2); // Change this line
 
 /*(Franklin|Eleanor):
@@ -738,3 +738,4 @@ Note: The String.prototype.trim() method would work here, but you'll need to com
 let hello = "   Hello, World!  ";
 let wsRegex = /^\s+|\s+$/g; // Solution
 let result31 = hello.replace(wsRegex, ""); // Solution
+///////////////////////////////////////////////////////////////////////////////////////////////////
