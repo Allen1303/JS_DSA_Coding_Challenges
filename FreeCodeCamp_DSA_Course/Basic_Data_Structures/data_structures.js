@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 /** Sept 4th 2024
  * @param {Basic Data Structures}
 Learn the nuances of arrays and objects in JavaScript. Discover when to use each and how to efficiently manipulate data with methods like splice() and Object.keys().
@@ -22,7 +22,7 @@ let complexArray = [
 We have defined a variable called yourArray. Complete the statement by assigning an array of at least 5 elements in length to the yourArray variable. Your array should contain at least one string, one number, and one boolean.
  */
 //Solution
-let yourArray = ['this is an array', 30, false, {name: "John"}, "apple"]
+let yourArray = ["this is an array", 30, false, { name: "John" }, "apple"];
 
 /**
  * @param {Arrays: Storing and Accessing Data}
@@ -68,14 +68,14 @@ console.log(myArray);
  
   We have defined a function, mixedNumbers, which we are passing an array as an argument. Modify the function by using push() and unshift() to add 'I', 2, 'three' to the beginning of the array and 7, 'VIII', 9 to the end so that the returned array contains representations of the numbers 1-9 in order.
  */
-  function mixedNumbers(arr) {
-    // Solution
-  arr.unshift('I', 2, "three");
-  arr.push(7, 'VIII', 9);
-    return arr;
-  }
-  console.log(mixedNumbers(['IV', 5, 'six']));
-  /**
+function mixedNumbers(arr) {
+  // Solution
+  arr.unshift("I", 2, "three");
+  arr.push(7, "VIII", 9);
+  return arr;
+}
+console.log(mixedNumbers(["IV", 5, "six"]));
+/**
    * @param {Removing Items from an Array: pop() and shift()}
 
 pop() and shift() are methods used to remove elements from an array.
@@ -101,13 +101,13 @@ Use code with caution.
 Create a function named popShift that takes an array as an argument. The function should remove both the first and last elements from the array and return a new array containing these removed elements.
 */
 function popShift(arr) {
-    let popped = arr.pop(); // Solution
-    let shifted = arr.shift(); // Solution
-    return [shifted, popped];
-  }
-  console.log(popShift(['challenge', 'is', 'not', 'complete']));
+  let popped = arr.pop(); // Solution
+  let shifted = arr.shift(); // Solution
+  return [shifted, popped];
+}
+console.log(popShift(["challenge", "is", "not", "complete"]));
 
-  /**
+/**
    * @param {Removing Items with splice()}
 
 splice() removes elements from an array, starting at a specified index. It takes two main parameters:
@@ -128,7 +128,7 @@ Use splice() on arr to keep only elements that sum to 10.
    */
 const arr = [2, 4, 5, 1, 7, 5, 2, 1];
 // Solution
-arr.splice(1, 4)
+arr.splice(1, 4);
 console.log(arr);
 
 /**
@@ -141,14 +141,13 @@ deleteCount: The number of elements to remove.
 itemsToAdd: One or more elements to insert at the specified index.
 To add items to an array using splice(), simply set deleteCount to 0 and provide the items you want to add as the third argument.
 
-@param Example:
+@param Example JavaScript:
 const numbers = [10, 11, 12, 12, 15];
 const startIndex = 3;
 const amountToDelete = 1;
-numbers.splice(startIndex, amountToDelete, 13, 14);
+ @param numbers.splice(startIndex, amountToDelete, 13, 14);
 console.log(numbers);
 
-@param JavaScript:
 const numbers = [10, 11, 12, 12, 15];
 numbers.splice(2, 0, 13, 14); // Adds 13 and 14 at index 2
 console.log(numbers); // Output: [10, 11, 13, 14, 12, 15]
@@ -158,18 +157,24 @@ Use code with caution.
 Modify the htmlColorNames function to remove the first two elements and insert 'DarkSalmon' and 'BlanchedAlmond' in their place.
  */
 function htmlColorNames(arr) {
-    // Solution
-  arr.splice(0,2, 'DarkSalmon', 'BlanchedAlmond')
-    return arr;
-  }
-  console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurquoise', 'FireBrick']));
+  // Solution
+  arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
+  return arr;
+}
+console.log(
+  htmlColorNames([
+    "DarkGoldenRod",
+    "WhiteSmoke",
+    "LavenderBlush",
+    "PaleTurquoise",
+    "FireBrick",
+  ])
+);
 
-  /**
+/**
 * @param {slice() creates a new array by extracting a portion of an existing array.}
 
-@param Example:
-
-@param JavaScript:
+@param Example JavaScript
 const weather = ['rain', 'snow', 'sleet', 'hail', 'clear'];
 const today = weather.slice(1, 3); // Creates a new array ['snow', 'sleet']
 Use code with caution.
@@ -178,7 +183,9 @@ Use code with caution.
 Write a forecast function that uses slice() to extract "warm" and "sunny" from a given weather array, returning a new array or an empty array if not found.
    */
 function forecast(arr) {
-    // Solution
-    return arr.slice(2,4);
-  }
-  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+  // Solution
+  return arr.slice(2, 4);
+}
+console.log(
+  forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
+);
