@@ -189,3 +189,109 @@ function forecast(arr) {
 console.log(
   forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
 );
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/** Sept 5th 2024
+ * @param {Copy an Array with the Spread Operator}
+The spread operator (...) makes copying all elements of an array simple and readable. Unlike slice(), which can copy specific parts of an array, the spread operator copies everything in order.
+
+@param Here’s how it works:
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray]; 
+// thatArray is now a copy of thisArray
+In this example, thisArray stays the same, and thatArray gets a copy of all its elements.
+
+ @param Task Instructions
+We’ve created a function, copyMachine, that takes an array (arr) and a number (num). Modify the function using the spread operator so that it returns a new array made up of num copies of arr.
+ */
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push([...arr]); // Solution
+    num--;
+  }
+  return newArr;
+}
+console.log(copyMachine([true, false, true], 2));
+
+/**
+ * @param {Combine Arrays with the Spread Operator}
+The spread operator (...) makes it easy to combine arrays or insert all elements of one array into another. Traditional methods like concat() only let you join arrays at the beginning or end. With the spread operator, you can insert one array's elements anywhere in another array.
+
+@param Example:
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+// thatArray is now ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
+This method is simpler and shorter than older methods.
+
+ @param Task
+Modify the spreadOut function to return the array ['learning', 'to', 'code', 'is', 'fun'] using the spread operator.
+ */
+function spreadOut() {
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"]; // Solution
+  return sentence;
+}
+console.log(spreadOut());
+
+/**
+ * @param {Check for an Element with indexOf()}
+Arrays can change over time, so you might not always know where a specific element is or if it’s still there. To help with this, JavaScript provides the indexOf() method, which checks if an element exists in an array. It takes an element as a parameter and returns the index (position) of that element. If the element isn’t found, it returns -1.
+
+@param Example:
+let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+
+fruits.indexOf('dates');    // Returns -1 (not found)
+fruits.indexOf('oranges');  // Returns 2 (found at index 2)
+fruits.indexOf('pears');    // Returns 1 (first occurrence)
+@param Task
+Modify the quickCheck function to use indexOf() and return true if the element is found in the array, or false if it’s not.
+ */
+function quickCheck(arr, elem) {
+  // Solution with Ternary Operator
+  return arr.indexOf(elem) >= 0 ? true : false;
+}
+console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms"));
+
+/**
+ * @param {Iterate Through an Array's Items Using For Loops}
+When working with arrays, you often need to loop through each item to find something specific or make changes. JavaScript provides several built-in methods to do this, like forEach() and map(), but using a for loop gives you the most control.
+
+ @param Example:
+function greaterThanTen(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 10) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+// Returns: [12, 14, 80]
+This function loops through each item in the array and checks if it's greater than 10. If it is, it adds that item to a new array, which is returned at the end.
+
+ @param Task:
+You need to modify the filteredArray function to use a for loop. The function should return a new array that excludes any nested array containing elem.
+ */
+function filteredArray(arr, elem) {
+  let newArr = [];
+  // check the length of arr and iterate through each nested array
+  for (let ii = 0; ii < arr.length; ii++) {
+    // check if elem does not exist in the current nested array
+    if (arr[ii].indexOf(elem) === -1) {
+      newArr.push(arr[ii]); // add the current nested array to newArr if elem is not found
+    }
+  }
+  return newArr; // return the new filtered array
+}
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    3
+  )
+);
