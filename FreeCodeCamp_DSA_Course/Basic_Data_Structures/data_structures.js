@@ -577,7 +577,6 @@ console.log(getArrayOfUsers(users3));
  You have learned how to add, modify, and remove key-value pairs in JavaScript objects, check if keys exist, and iterate over all keys. With this knowledge, you can solve more complex problems. Objects can store arrays, and JavaScript's flexibility lets you manipulate these arrays within objects.
 @param Task:
 The task is to complete the addFriend function so it takes a user object and adds a friend's name to the user.data.friends array, then returns the updated array.
-
  */
 let user = {
   name: 'Kenneth',
@@ -605,5 +604,4 @@ function addFriend(userObj, friend) {
 return userObj.data.friends
   // Only change code above this line
 }
-
 console.log(addFriend(user, 'Pete'));
