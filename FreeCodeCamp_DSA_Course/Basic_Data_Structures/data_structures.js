@@ -295,3 +295,192 @@ console.log(
     3
   )
 );
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/** Sept 7th 2024
+ * @param {Create complex multi-dimensional arrays}
+ * Arrays can get more complex when they contain other arrays, creating multi-dimensional (or nested) arrays. These arrays can have infinite levels of depth, with arrays inside arrays, and so on. An example of this is shown below:
+
+let nestedArray = [
+  ['deep'],
+  [
+    ['deeper'], ['deeper']
+  ],
+  [
+    [
+      ['deepest'], ['deepest']
+    ],
+    [
+      [
+        ['deepest-est?']
+      ]
+    ]
+  ]
+];
+Here, the levels of depth increase from 2 to 5. Even with such complexity, we can still access and modify data using bracket notation.
+
+@param Task: Modify the myNestedArray variable to have exactly five levels of depth. Include the string "deep" on the third level, "deeper" on the fourth, and "deepest" on the fifth.
+ */
+let myNestedArray = [
+  ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+  ['loop', 'shift', 6, 7, 1000, 'method'],
+  //Solution
+  ['concat', false, true, 'spread', 'array', ['deep']],
+  ['mutate', 1327.98, 'splice', 'slice', 'push', [['deeper']]],
+  ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth', [[['deepest']]]]
+];
+
+/**
+ * @param {Add Key-Value Pairs to JavaScript Objects}
+ * Objects in JavaScript store data as key-value pairs. Keys are unique identifiers, and values are the data associated with them. Here's an example:
+
+@param Example:
+const tekkenCharacter = {
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true
+};
+To add a new key-value pair, you can use dot notation or bracket notation. Dot notation is simple:
+
+@param Example:
+tekkenCharacter.origin = 'South Korea';
+Use bracket notation when the key has spaces or you want to use a variable:
+
+@param Example:
+tekkenCharacter['hair color'] = 'dyed orange';
+const eyes = 'eye color';
+tekkenCharacter[eyes] = 'brown';
+Now, add three entries to the foods object: bananas with a value of 13, grapes with a value of 35, and strawberries with a value of 27.
+ */
+const foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+//Solution
+foods.bananas = 13;
+foods["grapes"] = 35;
+//Using the variable method to assign ley value pairs
+const fruitType = "strawberries";
+foods[fruitType] = 27;
+
+console.log(foods);
+
+/**
+ * @param {Modify an Object Nested Within an Object}
+ * In JavaScript, objects can have nested properties, allowing you to store complex data structures. You can access and modify these properties using dot notation. For example, if you have a nested object like this:
+
+@apram Example
+let nestedObject = {
+  data: {
+    onlineStatus: {
+      busy: 8
+    }
+  }
+};
+To update the busy property, use dot notation like this:
+nestedObject.data.onlineStatus.busy = 10;
+
+@param Task: Modify the online property inside the userActivity object to have a value of 45.
+ */
+
+let userActivity = {
+  id: 23894201352,
+  date: 'January 1, 2017',
+  data: {
+    totalUsers: 51,
+    online: 42
+  }
+};
+
+// Solution
+userActivity.data.online = 45;
+console.log(userActivity);
+
+/**
+ * @param {Access Property Names with Bracket Notation}
+ * To access property names dynamically in objects, you can use bracket notation. This allows you to retrieve the value of an object property using a variable. For example, if you have an object foods and a variable selectedFood, you can access the corresponding value in the object with foods[selectedFood]. This is useful when property names are not known until runtime.
+
+@param Example: 
+let selectedFood = getCurrentFood(scannedItem);
+let inventory = foods[selectedFood];
+
+ @param Task:
+We've defined a function, checkInventory, which takes scannedItem as an argument. Return the current value of the scannedItem key in the foods object. You can assume only valid keys will be provided.
+ */
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+function checkInventory(scannedItem) {
+  // Solution
+return foods[scannedItem]
+
+}
+console.log(checkInventory("apples"));
+
+/**
+ * @param {Use the delete Keyword to Remove Object Properties}
+Now you know what objects are and their basic features and advantages. In short, they are key-value stores which provide a flexible, intuitive way to structure data, and, they provide very fast lookup time. Throughout the rest of these challenges, we will describe several common operations you can perform on objects so you can become comfortable applying these useful data structures in your programs.
+
+In earlier challenges, we have both added to and modified an object's key-value pairs. Here we will see how we can remove a key-value pair from an object.
+
+Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+
+@param Example delete foods.apples;
+Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
+ */
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+// Solution
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+console.log(foods);
+
+/**
+ * @param {Check if an Object has a Property}
+Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
+@param Example:
+users.hasOwnProperty('Alan');
+'Alan' in users;
+Both of these would return true.
+@param Task:
+Finish writing the function so that it returns true if the object passed to it contains all four names, Alan, Jeff, Sarah and Ryan and returns false otherwise.
+ */
+
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+function isEveryoneHere(userObj) {
+  // Solution
+  return ['Alan','Jeff', 'Sarah', 'Ryan'].every(name => userObj.hasOwnProperty(name)
+  ); 
+}
+
+console.log(isEveryoneHere(users));
