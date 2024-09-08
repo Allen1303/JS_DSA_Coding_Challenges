@@ -321,12 +321,12 @@ Here, the levels of depth increase from 2 to 5. Even with such complexity, we ca
 @param Task: Modify the myNestedArray variable to have exactly five levels of depth. Include the string "deep" on the third level, "deeper" on the fourth, and "deepest" on the fifth.
  */
 let myNestedArray = [
-  ['unshift', false, 1, 2, 3, 'complex', 'nested'],
-  ['loop', 'shift', 6, 7, 1000, 'method'],
+  ["unshift", false, 1, 2, 3, "complex", "nested"],
+  ["loop", "shift", 6, 7, 1000, "method"],
   //Solution
-  ['concat', false, true, 'spread', 'array', ['deep']],
-  ['mutate', 1327.98, 'splice', 'slice', 'push', [['deeper']]],
-  ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth', [[['deepest']]]]
+  ["concat", false, true, "spread", "array", ["deep"]],
+  ["mutate", 1327.98, "splice", "slice", "push", [["deeper"]]],
+  ["iterate", 1.3849, 7, "8.4876", "arbitrary", "depth", [[["deepest"]]]],
 ];
 
 /**
@@ -354,7 +354,7 @@ Now, add three entries to the foods object: bananas with a value of 13, grapes w
 const foods = {
   apples: 25,
   oranges: 32,
-  plums: 28
+  plums: 28,
 };
 
 //Solution
@@ -386,11 +386,11 @@ nestedObject.data.onlineStatus.busy = 10;
 
 let userActivity = {
   id: 23894201352,
-  date: 'January 1, 2017',
+  date: "January 1, 2017",
   data: {
     totalUsers: 51,
-    online: 42
-  }
+    online: 42,
+  },
 };
 
 // Solution
@@ -408,18 +408,17 @@ let inventory = foods[selectedFood];
  @param Task:
 We've defined a function, checkInventory, which takes scannedItem as an argument. Return the current value of the scannedItem key in the foods object. You can assume only valid keys will be provided.
  */
-let foods = {
+let foods2 = {
   apples: 25,
   oranges: 32,
   plums: 28,
   bananas: 13,
   grapes: 35,
-  strawberries: 27
+  strawberries: 27,
 };
 function checkInventory(scannedItem) {
   // Solution
-return foods[scannedItem]
-
+  return foods2[scannedItem];
 }
 console.log(checkInventory("apples"));
 
@@ -434,19 +433,19 @@ Let's revisit our foods object example one last time. If we wanted to remove the
 @param Example delete foods.apples;
 Use the delete keyword to remove the oranges, plums, and strawberries keys from the foods object.
  */
-let foods = {
+let foods3 = {
   apples: 25,
   oranges: 32,
   plums: 28,
   bananas: 13,
   grapes: 35,
-  strawberries: 27
+  strawberries: 27,
 };
 // Solution
-delete foods.oranges;
-delete foods.plums;
-delete foods.strawberries;
-console.log(foods);
+delete foods3.oranges;
+delete foods3.plums;
+delete foods3.strawberries;
+console.log(foods3);
 
 /**
  * @param {Check if an Object has a Property}
@@ -462,25 +461,149 @@ Finish writing the function so that it returns true if the object passed to it c
 let users = {
   Alan: {
     age: 27,
-    online: true
+    online: true,
   },
   Jeff: {
     age: 32,
-    online: true
+    online: true,
   },
   Sarah: {
     age: 48,
-    online: true
+    online: true,
   },
   Ryan: {
     age: 19,
-    online: true
-  }
+    online: true,
+  },
 };
 function isEveryoneHere(userObj) {
   // Solution
-  return ['Alan','Jeff', 'Sarah', 'Ryan'].every(name => userObj.hasOwnProperty(name)
-  ); 
+  return ["Alan", "Jeff", "Sarah", "Ryan"].every((name) =>
+    userObj.hasOwnProperty(name)
+  );
+}
+console.log(isEveryoneHere(users));
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/** Sept 8th 2024
+ * @param {Iterate Through the Keys of an Object with a for...in Statement}
+ * To loop through all the keys in an object, use a for...in loop. This loop iterates over each key in the object. For example:
+
+@param Example:
+const refrigerator = {
+  'milk': 1,
+  'eggs': 12,
+};
+
+for (const food in refrigerator) {
+  console.log(food, refrigerator[food]);
+}
+This will log each key-value pair, like milk 1 and eggs 12.
+
+@param Task: Define a function countOnline that accepts an allUsers object. Use a for...in loop inside this function to return the number of users with their online property set to true.
+ */
+const onlineUsers = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: false,
+  },
+};
+
+function countOnline(allUsers) {
+  //Solution
+  let userOnlineCount = 0; // Initializes a counter to track the number of users who are online
+  for (const onlineProp in allUsers) {
+    // Loops through each property (user) in the allUsers object.
+    if (allUsers[onlineProp].online) {
+      // Checks if the current user has their online property set to true
+      userOnlineCount++; // Increments the counter for each user that is online
+    }
+  }
+  return userOnlineCount; //return the number of users online
+}
+console.log(countOnline(users)); // Logs the count of users who are online
+
+/**
+ * @param {Generate an Array of All Object Keys with Object.keys()}
+ * The Object.keys() method generates an array containing all the keys (property names) of an object. You pass the object to Object.keys(), and it returns an array of strings that represent each property in the object. The order of the keys in the array is not guaranteed.
+@param Example:
+function getArrayOfUsers(obj) {
+  return Object.keys(obj);
+}
+const users = {
+  user1: 'Alice',
+  user2: 'Bob',
+  user3: 'Charlie'
+};
+
+console.log(getArrayOfUsers(users)); 
+// Output: ['user1', 'user2', 'user3']
+
+@param Task:
+Complete the getArrayOfUsers function so that it returns an array containing all the properties in the object passed to it.
+ */
+let users3 = {
+  Alan: {
+    age: 27,
+    online: false,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: false,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
+
+function getArrayOfUsers(obj) {
+  // Solution
+  return Object.keys(obj); // The Object.keys() method returns an array of the object's property  names.
 }
 
-console.log(isEveryoneHere(users));
+console.log(getArrayOfUsers(users3));
+
+/**
+ * @param {Modify an Array Stored in an Object}
+ You have learned how to add, modify, and remove key-value pairs in JavaScript objects, check if keys exist, and iterate over all keys. With this knowledge, you can solve more complex problems. Objects can store arrays, and JavaScript's flexibility lets you manipulate these arrays within objects.
+@param Task:
+The task is to complete the addFriend function so it takes a user object and adds a friend's name to the user.data.friends array, then returns the updated array.
+
+ */
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+function addFriend(userObj, friend) {
+  // Soultion
+  userObj.data.friends.push(friend)
+return userObj.data.friends
+  // Only change code above this line
+}
+
+console.log(addFriend(user, 'Pete'));
