@@ -1,4 +1,29 @@
 "use strict";
+/***
+ * @param {Escaping Literal Quotes in Strings }
+ * Use backslashes to assign a string to the myStr variable so that if you were to print it to the console, you would see:
+ */
+const msyStr = 'I am a "double quoted" string inside"double quotes".';
+/**
+ * Change the provided string to a string with single quotes at the beginning and end and no escape characters.
+
+Right now, the <a> tag in the string uses double quotes everywhere. You will need to change the outer quotes to single quotes so you can remove the escape characters.
+ */
+//solution
+const myStr = '<a href="http://www.example.com" target="_blank">Link</a>';
+
+/**
+ * @param Assign the following three lines of text into the single variable myStr using escape sequences.
+
+FirstLine
+    \SecondLine
+ThirdLine
+You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.
+@param Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.
+ */
+//Solution
+const escapeStr = "FirstLine\n\t\\SecondLine \n ThirdLine";
+
 /** Sept 4th 2024
  * @param {Basic Data Structures}
 Learn the nuances of arrays and objects in JavaScript. Discover when to use each and how to efficiently manipulate data with methods like splice() and Object.keys().
@@ -579,29 +604,25 @@ console.log(getArrayOfUsers(users3));
 The task is to complete the addFriend function so it takes a user object and adds a friend's name to the user.data.friends array, then returns the updated array.
  */
 let user = {
-  name: 'Kenneth',
+  name: "Kenneth",
   age: 28,
   data: {
-    username: 'kennethCodesAllDay',
-    joinDate: 'March 26, 2016',
-    organization: 'freeCodeCamp',
-    friends: [
-      'Sam',
-      'Kira',
-      'Tomo'
-    ],
+    username: "kennethCodesAllDay",
+    joinDate: "March 26, 2016",
+    organization: "freeCodeCamp",
+    friends: ["Sam", "Kira", "Tomo"],
     location: {
-      city: 'San Francisco',
-      state: 'CA',
-      country: 'USA'
-    }
-  }
+      city: "San Francisco",
+      state: "CA",
+      country: "USA",
+    },
+  },
 };
 
 function addFriend(userObj, friend) {
   // Soultion
-  userObj.data.friends.push(friend)
-return userObj.data.friends
+  userObj.data.friends.push(friend);
+  return userObj.data.friends;
   // Only change code above this line
 }
-console.log(addFriend(user, 'Pete'));
+console.log(addFriend(user, "Pete"));
