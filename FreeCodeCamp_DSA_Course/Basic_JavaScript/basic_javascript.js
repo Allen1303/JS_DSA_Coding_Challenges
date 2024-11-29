@@ -1,4 +1,35 @@
 "use strict";
+/** @param {Escaping Literal Quotes in Strings }
+
+* Use backslashes to assign a string to the myStr variable so that if you were to print it to the console, you would see:
+*/
+const msyStr = 'I am a "double quoted" string inside"double quotes".';
+/**
+* Change the provided string to a string with single quotes at the beginning and end and no escape characters.
+Right now, the <a> tag in the string uses double quotes everywhere. You will need to change the outer quotes to single quotes so you can remove the escape characters.
+*/
+
+//solution
+const myStr = '<a href="http://www.example.com" target="_blank">Link</a>';
+
+/**
+* @param Assign the following three lines of text into the single variable myStr using escape sequences.
+
+FirstLine
+   \SecondLine
+ThirdLine
+You will need to use escape sequences to insert special characters correctly. You will also need to follow the spacing as it looks above, with no spaces between escape sequences or words.
+@param Note: The indentation for SecondLine is achieved with the tab escape character, not spaces.
+*/
+//Solution
+const escapeStr = "FirstLine\n\t\\SecondLine \n ThirdLine";
+
+/** Sept 4th 2024
+* @param {Basic Data Structures}
+Learn the nuances of arrays and objects in JavaScript. Discover when to use each and how to efficiently manipulate data with methods like splice() and Object.keys().
+*/
+
+
 // Write a function createHelloWorld. It should return a new function that always returns "Hello World".
 /**
  *
