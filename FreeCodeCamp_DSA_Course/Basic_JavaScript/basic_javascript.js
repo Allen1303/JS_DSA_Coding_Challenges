@@ -90,3 +90,60 @@ myStr[0] = "H"; // Change this line
 let myStr5 = "jello World;";
 myStr5 = "Hello World";
 console.log(myStr5);
+
+/**Dec 1st 2024
+ * @param {Use Bracket Notation to Find the Nth Character in a String}
+You can also use bracket notation to get the character at other positions within a string.
+@param CHALLENGE 
+Let's try to set thirdLetterOfLastName to equal the third letter of the lastName variable using bracket notation.
+ */
+const lastName3 = "Lovelace";
+
+// Only change code below this line
+const thirdLetterOfLastName = lastName3[2];
+console.log(thirdLetterOfLastName);
+/**
+ * @param {Use Bracket Notation to Find the Last Character in a String}
+In order to get the last letter of a string, you can subtract one from the string's length.
+
+For example, if const firstName = "Ada", you can get the value of the last letter of the string by using firstName[firstName.length - 1].
+@param CHALLENGE
+Use bracket notation to find the last character in the lastName variable.
+
+ */
+//SOLUTION
+const lastName4 = "Lovelace";
+
+// Only change code below this line
+const lastLetterOfLastName = lastName4[lastName4.length - 1];
+console.log(lastLetterOfLastName);
+
+/**
+ * @param {Use Bracket Notation to Find the Nth-to-Last Character in a String}
+You can use the same principle we just used to retrieve the last character in a string to retrieve the Nth-to-last character.
+
+For example, you can get the value of the third-to-last letter of the const firstName = "Augusta" string by using firstName[firstName.length - 3]
+@param CHALLENGE
+Use bracket notation to find the second-to-last character in the lastName string.
+ */
+//SOLUTION
+const lastName5 = "Lovelace";
+
+// Only change code below this line
+const secondToLastLetterOfLastName = lastName5[lastName5.length - 2]; // Change this line
+console.log(secondToLastLetterOfLastName);
+/**
+ * @param Word Blanks
+You are provided sentences with some missing words, like nouns, verbs, adjectives and adverbs. You then fill in the missing pieces with words of your choice in a way that the completed sentence makes sense.
+@param CHALLENGE
+ Use the string concatenation operator + to build a new string, using the provided variables: myNoun, myAdjective, myVerb, and myAdverb. You will then assign the formed string to the wordBlanks variable. You should not change the words assigned to the variables.
+ */
+const myNoun = "dog";
+const myAdjective = "big";
+const myVerb = "ran";
+const myAdverb = "quickly";
+
+// SOLUTION
+const wordBlanks =
+  "The " + myAdjective + " " + myNoun + " " + myVerb + " " + myAdverb + ".";
+console.log(wordBlanks);
