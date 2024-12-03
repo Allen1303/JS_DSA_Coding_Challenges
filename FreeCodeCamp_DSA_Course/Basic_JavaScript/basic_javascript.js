@@ -207,7 +207,6 @@ console.log(myArray4);
 /**
  * @param {Access Multi-Dimensional Arrays With Indexes}
  *  One way to think of a multi-dimensional array, is as an array of arrays. When you use brackets to access your array, the first set of brackets refers to the entries in the outermost (the first level) array, and each additional pair of brackets refers to the next level of entries inside.
- * @param CHALLENGE
  * const arr = [
   [1, 2, 3],
   [4, 5, 6],
@@ -217,6 +216,8 @@ console.log(myArray4);
 const subarray = arr[3];
 const nestedSubarray = arr[3][0];
 const element = arr[3][0][1];
+ @param CHALLENGE
+Using bracket notation select an element from myArray such that myData is equal to 8.
  */
 
 const myArray5 = [
