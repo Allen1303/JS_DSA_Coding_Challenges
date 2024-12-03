@@ -186,7 +186,7 @@ Create a variable called myData and set it to equal the first value of myArray u
  */
 //SOLUTION
 const myArray3 = [50, 60, 70];
-const myData = myArray3[0]
+const myData = myArray3[0];
 console.log(myData);
 
 /**
@@ -227,5 +227,113 @@ const myArray5 = [
   [[10, 11, 12], 13, 14],
 ];
 //SOLUTION
-const myData = myArray5[2][1];
-console.log(myData);
+const myData2 = myArray5[2][1];
+console.log(myData2);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**DEC 3 2024
+ *@param {Manipulate Arrays With push Method}
+An easy way to append data to the end of an array is via the push() method.
+
+The push() method takes one or more arguments and appends them to the end of the array, in the order in which they appear. It returns the new length of the array.
+
+Examples:
+const arr1 = [1, 2, 3];
+arr1.push(4, 5);
+
+const arr2 = ["Simpson", "J", "cat"];
+arr2.push(["happy", "joy"]);
+
+ @param CHALLENGE
+ Push ["dog", 3] onto the end of the myArray variable.
+ */
+const myArray6 = [
+  ["John", 23],
+  ["cat", 2],
+];
+//SOLUTION
+myArray6.push(["dog", 3]);
+console.log(myArray6);
+
+/**
+  * @param {Manipulate Arrays With pop Method}
+Another way to change the data in an array is with the .pop() function.
+
+.pop() is used to pop a value off of the end of an array. We can store this popped off value by assigning it to a variable. In other words, .pop() removes the last element from an array and returns that element.
+
+Any type of entry can be popped off of an array - numbers, strings, even nested arrays.
+
+const threeArr = [1, 4, 6];
+const oneDown = threeArr.pop();
+console.log(oneDown);
+console.log(threeArr);
+ @param CHALLENGE
+Use the .pop() function to remove the last item from myArray and assign the popped off value to a new variable, removedFromMyArray.
+  */
+//SOLUTION
+const myArray7 = [
+  ["John", 23],
+  ["cat", 2],
+];
+const removedFromMyArray = myArray7.pop();
+console.log(removedFromMyArray);
+
+/**
+ * @param {Manipulate Arrays With shift Method}
+pop() always removes the last element of an array. What if you want to remove the first?
+
+That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+@param Example:
+const ourArray = ["Simpson", "J", ["cat"]];
+const removedFromOurArray = ourArray.shift();
+ @param CHALLENGE
+Use the .shift() function to remove the first item from myArray and assign the "shifted off" value to a new variable, removedFromMyArray.
+ */
+//SOLUTION
+const myArray8 = [
+  ["John", 23],
+  ["dog", 3],
+];
+const removedFromMyArray2 = myArray8.shift();
+console.log(removedFromMyArray2);
+
+/**
+ * @param Manipulate Arrays With unshift Method
+Not only can you shift elements off of the beginning of an array, you can also unshift elements to the beginning of an array i.e. add elements in front of the array.
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+@param Example:
+const ourArray = ["Simpson", "J", "cat"];
+ourArray.shift();
+ourArray.unshift("Happy");
+ @param CHALLENGE
+Add ["Paul", 35] to the beginning of the myArray variable using unshift().
+ */
+const myArray9 = [
+  ["John", 23],
+  ["dog", 3],
+];
+myArray9.shift();
+//SOLUTION
+myArray9.unshift(["Paul", 35]);
+console.log(myArray9);
+
+/**
+ * @param {Multi-Dimensional Shopping List Array}
+Create a shopping list in the variable myList. The list should be a multi-dimensional array containing several sub-arrays.
+The first element in each sub-array should contain a string with the name of the item. The second element should be a number representing the quantity i.e.
+
+@param Example: ["Chocolate Bar", 15]
+
+ @param CHALLENGE
+There should be at least 5 sub-arrays in the list.
+ */
+//SOLUTION
+const myList = [
+  ["Books", 2],
+  ["Knee brace", 1],
+  ["Gym shorts", 3],
+  ["Protein Powder", 1],
+  ["T-Shirts", 3],
+];
+console.log(myList);
