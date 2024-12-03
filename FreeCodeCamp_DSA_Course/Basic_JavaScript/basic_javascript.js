@@ -147,3 +147,84 @@ const myAdverb = "quickly";
 const wordBlanks =
   "The " + myAdjective + " " + myNoun + " " + myVerb + " " + myAdverb + ".";
 console.log(wordBlanks);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**DEC 2nd 2024
+ *@param {Store Multiple Values in one Variable using JavaScript Arrays}
+With JavaScript array variables, we can store several pieces of data in one place.
+
+You start an array declaration with an opening square bracket, end it with a closing square bracket, and put a comma between each entry, like this:
+
+const sandwich = ["peanut butter", "jelly", "bread"];
+@param CHALLENGE
+Modify the new array myArray so that it contains both a string and a number (in that order).
+ */
+//SOLUTION
+const myArray = ["Allen", 30];
+
+/**
+ * @param {Nest one Array within Another Array}
+You can also nest arrays within other arrays, like below:
+const teams = [["Bulls", 23], ["White Sox", 45]];
+This is also called a multi-dimensional array.
+@param CHALLENGE
+Create a nested array called myArray.
+ */
+//SOLUTION
+const myArray2 = [["Air Jordan", 11], ["Bulls, 23"]];
+console.log(myArray2);
+/**
+ * @param Access Array Data with Indexes
+We can access the data inside arrays using indexes.
+
+Array indexes are written in the same bracket notation that strings use, except that instead of specifying a character, they are specifying an entry in the array. Like strings, arrays use zero-based indexing, so the first element in an array has an index of 0.
+@param Example
+const array = [50, 60, 70];
+console.log(array[0]);
+const data = array[1];
+@param CHALLENGE
+Create a variable called myData and set it to equal the first value of myArray using bracket notation.
+ */
+//SOLUTION
+const myArray3 = [50, 60, 70];
+const myData = myArray3[0]
+console.log(myData);
+
+/**
+ * @param {Modify Array Data With Indexes}
+Unlike strings, the entries of arrays are mutable and can be changed freely, even if the array was declared with const.
+
+@param Example
+const ourArray = [50, 40, 30];
+ourArray[0] = 15;
+@param CHALLENGE
+Modify the data stored at index 0 of myArray to a value of 45.
+ */
+//SOLUTION
+const myArray4 = [18, 64, 99];
+myArray4[0] = 45;
+console.log(myArray4);
+
+/**
+ * @param {Access Multi-Dimensional Arrays With Indexes}
+ *  One way to think of a multi-dimensional array, is as an array of arrays. When you use brackets to access your array, the first set of brackets refers to the entries in the outermost (the first level) array, and each additional pair of brackets refers to the next level of entries inside.
+ * @param CHALLENGE
+ * const arr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [[10, 11, 12], 13, 14]
+];
+const subarray = arr[3];
+const nestedSubarray = arr[3][0];
+const element = arr[3][0][1];
+ */
+
+const myArray5 = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [[10, 11, 12], 13, 14],
+];
+//SOLUTION
+const myData = myArray5[2][1];
+console.log(myData);
