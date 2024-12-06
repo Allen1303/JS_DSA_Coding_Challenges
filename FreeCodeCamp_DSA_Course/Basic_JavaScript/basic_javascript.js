@@ -337,3 +337,165 @@ const myList = [
   ["T-Shirts", 3],
 ];
 console.log(myList);
+/**
+ * @param {Write Reusable JavaScript with Functions}
+In JavaScript, we can divide up our code into reusable parts called functions.
+
+Here's an example of a function:
+
+function functionName() {
+  console.log("Hello World");
+}
+ */
+//SOLUTION
+function reusableFunction() {
+  console.log("Hi World");
+}
+reusableFunction();
+
+/**
+ * @param {Passing Values to Functions with Arguments}
+Parameters are variables that act as placeholders for the values that are to be input to a function when it is called. When a function is defined, it is typically defined along with one or more parameters. The actual values that are input (or "passed") into a function when it is called are known as arguments.
+
+Here is a function with two parameters, param1 and param2:
+
+function testFun(param1, param2) {
+  console.log(param1, param2);
+  @param CHALLENGE
+  Create a function called functionWithArgs that accepts two arguments and outputs their sum to the dev console.
+Call the function with two numbers as arguments.
+}
+ */
+//SOLUTION
+function functionWithArgs(sum1, sum2) {
+  console.log(sum1 + sum2);
+}
+functionWithArgs(2, 3);
+///////////////////////////////////////////////////////////////////////////////////////////
+/** DEC 5 2024
+ * @param {Return a Value from a Function with Return}
+We can pass values into a function with arguments. You can use a return statement to send a value back out of a function.
+
+E@param Example
+function plusThree(num) {
+  return num + 3;
+}
+const answer = plusThree(5);
+@param CHALLENGE
+Create a function timesFive that accepts one argument, multiplies it by 5, and returns the new value.
+ */
+
+//SOLUTION
+function timesFive(multiply) {
+  return multiply * 5;
+}
+console.log(timesFive(5));
+/**
+ * @param {Global Scope and Functions}
+In JavaScript, scope refers to the visibility of variables. Variables which are defined outside of a function block have Global scope. This means, they can be seen everywhere in your JavaScript code.
+
+Variables which are declared without the let or const keywords are automatically created in the global scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with let or const.
+
+@param CHALLENGE
+Using let or const, declare a global variable named myGlobal outside of any function. Initialize it with a value of 10.
+Inside function fun1, assign 5 to oopsGlobal without using the var, let or const keywords.
+ */
+
+//SOLUTION
+let myGlobal = 10;
+function fun1() {
+  // SOLUTION
+  oopsGlobal = 5;
+}
+
+function fun2() {
+  let output = "";
+  if (typeof myGlobal != "undefined") {
+    output += "myGlobal: " + myGlobal;
+  }
+  if (typeof oopsGlobal != "undefined") {
+    output += " oopsGlobal: " + oopsGlobal;
+  }
+  console.log(output);
+}
+
+/**
+ *@param {Local Scope and Functions}
+Variables which are declared within a function, as well as the function parameters, have local scope. That means they are only visible within that function.
+Here is a function myTest with a local variable called loc.
+function myTest() {
+  const loc = "foo";
+  console.log(loc);
+}
+myTest();
+console.log(loc);
+The myTest() function call will display the string foo in the console. The console.log(loc) line (outside of the myTest function) will throw an error, as loc is not defined outside of the function.
+ */
+function myLocalScope() {
+  //Solution
+  let myVar;
+  console.log("inside myLocalScope", myVar); //output inside myLocalScope undefined
+}
+myLocalScope();
+// console.log("outside myLocalScope", myVar); // ReferenceError: myVar is not defined
+
+/**
+ *@param  {Global vs. Local Scope in Functions}
+It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
+
+@param example:
+const someVar = "Hat";
+function myFun() {
+  const someVar = "Head";
+  return someVar;
+}
+  @param CHALLENGE
+  Add a local variable to myOutfit function to override the value of outerWear with the string sweater.
+ */
+const outerWear = "T-Shirt";
+function myOutfit() {
+  const outerWear = "sweater";
+  return outerWear;
+}
+myOutfit();
+/**
+ * @param {Understanding Undefined Value returned from a Function}
+A function can include the return statement but it does not have to. In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
+
+@param Example
+let sum = 0;
+function addSum(num) {
+  sum = sum + num;
+}
+addSum(3);
+@param CHALLENGE
+Create a function addFive without any arguments. This function adds 5 to the sum variable, but its returned value is undefined.
+ */
+// Setup
+let sum = 0;
+
+function addThree() {
+  sum = sum + 3;
+}
+
+function addFive() {
+  //SOLUTION
+  sum += 5;
+}
+addThree();
+console.log(addFive());
+/**
+ * @param {Assignment with a Returned Value}
+If you'll recall from our discussion about Storing Values with the Assignment Operator, everything to the right of the equal sign is resolved before the value is assigned. This means we can take the return value of a function and assign it to a variable.
+
+Assume we have defined a function sum which adds two numbers together.
+ourSum = sum(5, 12);
+@param CHALLENGE
+ Call the processArg function with an argument of 7 and assign its return value to the variable processed.
+ */
+let processed = 0;
+function processArg(num) {
+  return (num + 3) / 5;
+}
+//SOLUTION
+processed = processArg(7);
