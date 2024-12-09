@@ -499,3 +499,81 @@ function processArg(num) {
 }
 //SOLUTION
 processed = processArg(7);
+
+/**DEC 9TH 2024
+ * @param {Stand in Line}
+In Computer Science a queue is an abstract Data Structure where items are kept in order. New items can be added at the back of the queue and old items are taken off from the front of the queue.
+@param CHALLENGE
+Write a function nextInLine which takes an array (arr) and a number (item) as arguments.
+Add the number to the end of the array, then remove the first element of the array.
+The nextInLine function should then return the element that was removed.
+ */
+function nextInLine(arr, item) {
+  //SOLUTION
+  arr.push(item)
+ const removeItem = arr.shift()
+  return removeItem;
+}
+let testArr = [1, 2, 3, 4, 5];
+
+// Display code
+console.log("Before: " + JSON.stringify(testArr));
+console.log(nextInLine(testArr, 6));
+console.log("After: " + JSON.stringify(testArr));
+/**
+ * @param {Understanding Boolean Values}
+Another data type is the Boolean. Booleans may only be one of two values: true or false. They are basically little on-off switches, where true is on and false is off. These two states are mutually exclusive.
+
+Note: Boolean values are never written with quotes. The strings "true" and "false" are not Boolean and have no special meaning in JavaScript.
+@param CHALLENGE
+Modify the welcomeToBooleans function so that it returns true instead of false.
+ */
+unction welcomeToBooleans() {
+
+  // return false;
+  return true; //Solution
+}
+/**
+ * @param {Use Conditional Logic with If Statements}
+if statements are used to make decisions in code. The keyword if tells JavaScript to execute the code in the curly braces under certain conditions, defined in the parentheses. These conditions are known as Boolean conditions and they may only be true or false.
+When the condition evaluates to true, the program executes the statement inside the curly braces. When the Boolean condition evaluates to false, the statement inside the curly braces will not execute.
+
+Pseudocode
+
+if (condition is true) {
+  statement is executed
+}
+  @param CHALLENGE
+  Create an if statement inside the function to return Yes, that was true if the parameter wasThatTrue is true and return No, that was false otherwise.
+ */
+  function trueOrFalse(wasThatTrue) {
+  if(wasThatTrue){
+    //Solution
+    return "Yes, that was true";
+  }
+      //Solution
+  return 'No, that was false';  
+  }
+  /**
+   * 
+   * @param {Comparison with the Equality Operator}
+There are many comparison operators in JavaScript. All of these operators return a boolean true or false value.
+The most basic operator is the equality operator ==. The equality operator compares two values and returns true if they're equivalent or false if they are not. Note that equality is different from assignment (=), which assigns the value on the right of the operator to a variable on the left.
+
+function equalityTest(myVal) {
+  if (myVal == 10) {
+    return "Equal";
+  }
+  return "Not Equal";
+}
+  @param CHALLENGE
+  Add the equality operator to the indicated line so that the function will return the string Equal when val is equivalent to 12.
+   */
+  // Setup
+function testEqual(val) {
+  if (val == 12) { //<--Solution
+    return "Equal";
+  }
+  return "Not Equal";
+}
+testEqual(10);
