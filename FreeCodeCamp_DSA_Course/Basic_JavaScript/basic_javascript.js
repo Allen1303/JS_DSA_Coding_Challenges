@@ -371,7 +371,7 @@ function functionWithArgs(sum1, sum2) {
   console.log(sum1 + sum2);
 }
 functionWithArgs(2, 3);
-///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /** DEC 5 2024
  * @param {Return a Value from a Function with Return}
 We can pass values into a function with arguments. You can use a return statement to send a value back out of a function.
@@ -510,8 +510,8 @@ The nextInLine function should then return the element that was removed.
  */
 function nextInLine(arr, item) {
   //SOLUTION
-  arr.push(item)
- const removeItem = arr.shift()
+  arr.push(item);
+  const removeItem = arr.shift();
   return removeItem;
 }
 let testArr = [1, 2, 3, 4, 5];
@@ -528,8 +528,7 @@ Note: Boolean values are never written with quotes. The strings "true" and "fals
 @param CHALLENGE
 Modify the welcomeToBooleans function so that it returns true instead of false.
  */
-unction welcomeToBooleans() {
-
+function welcomeToBooleans() {
   // return false;
   return true; //Solution
 }
@@ -546,15 +545,15 @@ if (condition is true) {
   @param CHALLENGE
   Create an if statement inside the function to return Yes, that was true if the parameter wasThatTrue is true and return No, that was false otherwise.
  */
-  function trueOrFalse(wasThatTrue) {
-  if(wasThatTrue){
+function trueOrFalse(wasThatTrue) {
+  if (wasThatTrue) {
     //Solution
     return "Yes, that was true";
   }
-      //Solution
-  return 'No, that was false';  
-  }
-  /**
+  //Solution
+  return "No, that was false";
+}
+/**
    * 
    * @param {Comparison with the Equality Operator}
 There are many comparison operators in JavaScript. All of these operators return a boolean true or false value.
@@ -569,11 +568,209 @@ function equalityTest(myVal) {
   @param CHALLENGE
   Add the equality operator to the indicated line so that the function will return the string Equal when val is equivalent to 12.
    */
-  // Setup
+// Setup
 function testEqual(val) {
-  if (val == 12) { //<--Solution
+  if (val == 12) {
+    //<--Solution
     return "Equal";
   }
   return "Not Equal";
 }
 testEqual(10);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+/** DEC 11 2024
+ * @param {Comparison with the Strict Equality Operator}
+Strict equality (===) is the counterpart to the equality operator (==). However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.
+
+If the values being compared have different types, they are considered unequal, and the strict equality operator will return false.
+
+@param Examples
+3 ===  3  // true
+3 === '3' // false
+In the second example, 3 is a Number type and '3' is a String type.
+ @param CHALLENGE
+Use the strict equality operator in the if statement so the function will return the string Equal when val is strictly equal to 7.
+ */
+function testStrict2(val2) {
+  if (val2 === 7) {
+    // Change this line
+    return "Equal";
+  }
+  return "Not Equal";
+}
+console.log(testStrict2(10));
+/**
+ * @param {Practice comparing different values}
+In the last two challenges, we learned about the equality operator (==) and the strict equality operator (===). Let's do a quick review and practice using these operators some more.
+
+If the values being compared are not of the same type, the equality operator will perform a type conversion, and then evaluate the values. However, the strict equality operator will compare both the data type and value as-is, without converting one type to the other.
+
+@param Examples
+3 == '3' returns true because JavaScript performs type conversion from string to number. 3 === '3' returns false because the types are different and type conversion is not performed.
+
+Note: In JavaScript, you can determine the type of a variable or a value with the typeof operator, as follows:
+typeof 3
+typeof '3'
+ */
+function compareEquality(a, b) {
+  //Solution
+  if (a === b) {
+    return "Equal";
+  }
+  return "Not Equal";
+}
+console.log(compareEquality(10, "10"));
+/**
+ * @param {Comparison with the Inequality Operator}
+The inequality operator (!=) is the opposite of the equality operator. Inequality means not equal. The inequality operator returns false when the equality operator would return true and vice versa. Like the equality operator, the inequality operator will convert data types of values while comparing.
+
+@param Examples
+1 !=  2    // true
+1 != "1"   // false
+1 != '1'   // false
+1 != true  // false
+0 != false // false
+@param CHALLENGE
+Add the inequality operator != in the if statement so that the function will return the string Not Equal when val is not equivalent to 99.
+ */ function testNotEqual(val3) {
+  //Solution
+  if (val3 != 99) {
+    return "Not Equal";
+  }
+  return "Equal";
+}
+
+console.log(testNotEqual(10));
+/**
+ *@param  {Comparison with the Strict Inequality Operator}
+The strict inequality operator (!==) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns false where strict equality would return true and vice versa. The strict inequality operator will not convert data types.
+
+@param Examples
+
+3 !==  3  // false
+3 !== '3' // true
+4 !==  3  // true
+@param CHALLENGE
+Add the strict inequality operator to the if statement so the function will return the string Not Equal when val is not strictly equal to 17
+ */
+function testStrictNotEqual(val4) {
+  //Solution
+  if (val4 !== 17) {
+    return "Not Equal";
+  }
+  return "Equal";
+}
+
+console.log(testStrictNotEqual(10));
+/**
+ *@param {Comparison with the Greater Than Operator}
+The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true. Otherwise, it returns false.
+
+Like the equality operator, the greater than operator will convert data types of values while comparing.
+
+Examples
+
+5   >  3  // true
+7   > '3' // true
+2   >  3  // false
+'1' >  9  // false
+@param CHALLENGE
+Add the greater than operator to the indicated lines so that the return statements make sense.
+ */
+function testGreaterThan(val5) {
+  // Solution
+  if (val5 > 100) {
+    return "Over 100";
+  }
+  // Solution
+  if (val5 > 10) {
+    return "Over 10";
+  }
+
+  return "10 or Under";
+}
+
+console.log(testGreaterThan(10));
+/**
+ * @param {Comparison with the Greater Than Or Equal To Operator}
+The greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, it returns true. Otherwise, it returns false.
+
+Like the equality operator, the greater than or equal to operator will convert data types while comparing.
+
+Examples
+
+6   >=  6  // true
+7   >= '3' // true
+2   >=  3  // false
+'7' >=  9  // false
+
+@param CHALLENGE
+Add the greater than or equal to operator to the indicated lines so that the return statements make sense.
+ */
+function testGreaterOrEqual(val) {
+  //Solution
+  if (val >= 20) {
+    return "20 or Over";
+  }
+  //Solution
+  if (val >= 10) {
+    return "10 or Over";
+  }
+
+  return "Less than 10";
+}
+
+console.log(testGreaterOrEqual(10));
+
+/** 
+ * @param {Comparison with the Less Than Operator}
+The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right, it returns true. Otherwise, it returns false. Like the equality operator, the less than operator converts data types while comparing.
+
+@param Examples
+
+2   < 5 // true
+'3' < 7 // true
+5   < 5 // false
+3   < 2 // false
+'8' < 4 // false
+@param CHALLENGE
+Add the less than operator to the indicated lines so that the return statements make sense.
+*/
+function testLessThan(val6) {
+  //solution
+  if (val6 < 25) {
+    return "Under 25";
+  }
+  //solution
+  if (val6 < 55) {
+    return "Under 55";
+  }
+
+  return "55 or Over";
+}
+testLessThan(10);
+/**
+ * @param {Comparison with the Less Than Or Equal To Operator}
+The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true. If the number on the left is greater than the number on the right, it returns false. Like the equality operator, the less than or equal to operator converts data types.
+@param Examples
+4   <= 5 // true
+'7' <= 7 // true
+5   <= 5 // true
+3   <= 2 // false
+'8' <= 4 // false
+@param CHALLENGE
+Add the less than or equal to operator to the indicated lines so that the return statements make sense
+ */
+function testLessOrEqual(val7) {
+  // Solution
+  if (val7 <= 12) {
+    return "Smaller Than or Equal to 12";
+  }
+  // Solution
+  if (val7 <= 24) {
+    return "Smaller Than or Equal to 24";
+  }
+
+  return "More Than 24";
+}
+console.log(testLessOrEqual(10));
