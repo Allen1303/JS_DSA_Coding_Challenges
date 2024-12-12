@@ -773,4 +773,4 @@ function testLessOrEqual(val7) {
 
   return "More Than 24";
 }
-console.log(testLessOrEqual(10));
+console.log(testLessOrEqual(11));
